@@ -26,71 +26,142 @@ namespace DisplayNewsPanel.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("মোঃ শাকিকুল ইসলাম ***")]
-        public string NewsText {
+        public string NewsText1 {
             get {
-                return ((string)(this["NewsText"]));
+                return ((string)(this["NewsText1"]));
             }
             set {
-                this["NewsText"] = value;
+                this["NewsText1"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("None")]
-        public string Direction {
+        public string Direction1 {
             get {
-                return ((string)(this["Direction"]));
+                return ((string)(this["Direction1"]));
             }
             set {
-                this["Direction"] = value;
+                this["Direction1"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Black")]
-        public global::System.Drawing.Color ForeColor {
+        public global::System.Drawing.Color ForeColor1 {
             get {
-                return ((global::System.Drawing.Color)(this["ForeColor"]));
+                return ((global::System.Drawing.Color)(this["ForeColor1"]));
             }
             set {
-                this["ForeColor"] = value;
+                this["ForeColor1"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("White")]
-        public global::System.Drawing.Color BackColor {
+        public global::System.Drawing.Color BackColor1 {
             get {
-                return ((global::System.Drawing.Color)(this["BackColor"]));
+                return ((global::System.Drawing.Color)(this["BackColor1"]));
             }
             set {
-                this["BackColor"] = value;
+                this["BackColor1"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Drawing.Font Font {
+        public global::System.Drawing.Font Font1 {
             get {
-                return ((global::System.Drawing.Font)(this["Font"]));
+                return ((global::System.Drawing.Font)(this["Font1"]));
             }
             set {
-                this["Font"] = value;
+                this["Font1"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("5")]
-        public int Speed {
+        public int Speed1 {
             get {
-                return ((int)(this["Speed"]));
+                return ((int)(this["Speed1"]));
             }
             set {
-                this["Speed"] = value;
+                this["Speed1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("মোঃ শাকিকুল ইসলাম ***")]
+        public string NewsText2 {
+            get {
+                return ((string)(this["NewsText2"]));
+            }
+            set {
+                this["NewsText2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("None")]
+        public string Direction2 {
+            get {
+                return ((string)(this["Direction2"]));
+            }
+            set {
+                this["Direction2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Black")]
+        public global::System.Drawing.Color ForeColor2 {
+            get {
+                return ((global::System.Drawing.Color)(this["ForeColor2"]));
+            }
+            set {
+                this["ForeColor2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("White")]
+        public global::System.Drawing.Color BackColor2 {
+            get {
+                return ((global::System.Drawing.Color)(this["BackColor2"]));
+            }
+            set {
+                this["BackColor2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Font Font2 {
+            get {
+                return ((global::System.Drawing.Font)(this["Font2"]));
+            }
+            set {
+                this["Font2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public int Speed2 {
+            get {
+                return ((int)(this["Speed2"]));
+            }
+            set {
+                this["Speed2"] = value;
             }
         }
     }
