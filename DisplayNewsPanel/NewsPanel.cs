@@ -19,8 +19,8 @@ namespace DisplayNewsPanel
             DirectionList(comboBoxNews2Direction);
 
             LoadSetting();
-            
 
+            this.TopMost = true;
         }
 
         private void LoadSetting()
@@ -106,6 +106,7 @@ namespace DisplayNewsPanel
             {
                 _count = 0;
                 pictureBoxSetting.Visible = false;
+                pictureBoxClose.Visible = false;
 
                 timerSetting.Stop();
             }
@@ -190,12 +191,6 @@ namespace DisplayNewsPanel
         {
             panelSetting.Visible = false;
         }
-
-        private void tableLayoutPanelMain_MouseHover_1(object sender, EventArgs e)
-        {
-            pictureBoxSetting.Visible = true;
-            timerSetting.Start();
-        }
         
         private void pictureBoxSetting_Click(object sender, EventArgs e)
         {
@@ -205,6 +200,7 @@ namespace DisplayNewsPanel
         private void pictureBoxNewsImage_MouseHover(object sender, EventArgs e)
         {
             pictureBoxSetting.Visible = true;
+            pictureBoxClose.Visible = true;
             timerSetting.Start();
         }
 
@@ -281,6 +277,11 @@ namespace DisplayNewsPanel
             // Save Setting
             Settings.Default.Speed2 = trackBarNews2Speed.Value;
             Settings.Default.Save();
+        }
+
+        private void pictureBoxClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
 
