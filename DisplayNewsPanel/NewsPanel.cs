@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using DisplayNewsPanel.Properties;
 using ShakikulFramework;
+using ShakikulFramework.Toolbox;
 
 namespace DisplayNewsPanel
 {
@@ -36,13 +38,13 @@ namespace DisplayNewsPanel
             trackBarNews1Speed.Value = Settings.Default.Speed1;
             labelNews1Speed.Text = Settings.Default.Speed1.ToString();
 
-            SetDirection(comboBoxNews1Direction, saScrollingLabelTextNews1);
+            SetDirection(comboBoxNews1Direction, saScrollingLabelNews1);
 
-            saScrollingLabelTextNews1.Text = Settings.Default.NewsText1;
-            saScrollingLabelTextNews1.ForeColor = Settings.Default.ForeColor1;
-            saScrollingLabelTextNews1.BackColor = Settings.Default.BackColor1;
-            saScrollingLabelTextNews1.Font = Settings.Default.Font1;
-            saScrollingLabelTextNews1.ScrollSpeed = Settings.Default.Speed1;
+            saScrollingLabelNews1.Text = Settings.Default.NewsText1;
+            saScrollingLabelNews1.ForeColor = Settings.Default.ForeColor1;
+            panelNews1.BackColor = Settings.Default.BackColor1;
+            saScrollingLabelNews1.Font = Settings.Default.Font1;
+            saScrollingLabelNews1.ScrollSpeed = Settings.Default.Speed1;
 
             #endregion
 
@@ -57,13 +59,13 @@ namespace DisplayNewsPanel
             trackBarNews2Speed.Value = Settings.Default.Speed2;
             labelNews2Speed.Text = Settings.Default.Speed2.ToString();
 
-            SetDirection(comboBoxNews2Direction, saScrollingLabelTextNews2);
+            SetDirection(comboBoxNews2Direction, saScrollingLabelNews2);
 
-            saScrollingLabelTextNews2.Text = Settings.Default.NewsText2;
-            saScrollingLabelTextNews2.ForeColor = Settings.Default.ForeColor2;
-            saScrollingLabelTextNews2.BackColor = Settings.Default.BackColor2;
-            saScrollingLabelTextNews2.Font = Settings.Default.Font2;
-            saScrollingLabelTextNews2.ScrollSpeed = Settings.Default.Speed2;
+            saScrollingLabelNews2.Text = Settings.Default.NewsText2;
+            saScrollingLabelNews2.ForeColor = Settings.Default.ForeColor2;
+            panelNews2.BackColor = Settings.Default.BackColor2;
+            saScrollingLabelNews2.Font = Settings.Default.Font2;
+            saScrollingLabelNews2.ScrollSpeed = Settings.Default.Speed2;
 
             #endregion
 
@@ -86,7 +88,7 @@ namespace DisplayNewsPanel
             //    comboBoxDirection.Text = "Right To Left";
         }
 
-        private void SetDirection(ComboBox comboBox, SAScrollingLabelText label)
+        private void SetDirection(ComboBox comboBox, SAScrollingLabel label)
         {
             if (comboBox.Text == "None")
                 label.ScrollDirection = ScrollingTextEnum.None;
@@ -114,7 +116,7 @@ namespace DisplayNewsPanel
 
         private void textBoxNewsText_TextChanged(object sender, EventArgs e)
         {
-            saScrollingLabelTextNews1.Text = textBoxNews1Text.Text;
+            saScrollingLabelNews1.Text = textBoxNews1Text.Text;
 
             // Save Setting
             Settings.Default.NewsText1 = textBoxNews1Text.Text;
@@ -123,14 +125,14 @@ namespace DisplayNewsPanel
 
         private void buttonForeColor_Click(object sender, EventArgs e)
         {
-            _colorDialog=new ColorDialog{Color= saScrollingLabelTextNews1.ForeColor};
-            _colorDialog.Color = saScrollingLabelTextNews1.ForeColor;
+            _colorDialog=new ColorDialog{Color= saScrollingLabelNews1.ForeColor};
+            _colorDialog.Color = saScrollingLabelNews1.ForeColor;
             if (_colorDialog.ShowDialog() == DialogResult.OK)
             {
                 buttonNews1ForeColor.ForeColor = _colorDialog.Color;
                 buttonNews1BackColor.ForeColor = _colorDialog.Color;
 
-                saScrollingLabelTextNews1.ForeColor = _colorDialog.Color;
+                saScrollingLabelNews1.ForeColor = _colorDialog.Color;
                 
                 // Save Setting
                 Settings.Default.ForeColor1 = _colorDialog.Color;
@@ -140,11 +142,11 @@ namespace DisplayNewsPanel
 
         private void buttonTextStyle_Click(object sender, EventArgs e)
         {
-            _fontDialog=new FontDialog {Font = saScrollingLabelTextNews1.Font};
+            _fontDialog=new FontDialog {Font = saScrollingLabelNews1.Font};
 
             if (_fontDialog.ShowDialog() == DialogResult.OK)
             {
-                saScrollingLabelTextNews1.Font = _fontDialog.Font;
+                saScrollingLabelNews1.Font = _fontDialog.Font;
 
                 // Save Setting
                 Settings.Default.Font1 = _fontDialog.Font;
@@ -154,13 +156,13 @@ namespace DisplayNewsPanel
 
         private void buttonBackColor_Click(object sender, EventArgs e)
         {
-            _colorDialog = new ColorDialog {Color = saScrollingLabelTextNews1.BackColor};
+            _colorDialog = new ColorDialog {Color = saScrollingLabelNews1.BackColor};
             if (_colorDialog.ShowDialog()==DialogResult.OK)
             {
                 buttonNews1ForeColor.BackColor = _colorDialog.Color;
                 buttonNews1BackColor.BackColor = _colorDialog.Color;
 
-                saScrollingLabelTextNews1.BackColor = _colorDialog.Color;
+                panelNews1.BackColor = _colorDialog.Color;
 
                 // Save Setting
                 Settings.Default.BackColor1 = _colorDialog.Color;
@@ -171,7 +173,7 @@ namespace DisplayNewsPanel
         private void trackBarSpeed_Scroll(object sender, EventArgs e)
         {
             labelNews1Speed.Text = trackBarNews1Speed.Value.ToString();
-            saScrollingLabelTextNews1.ScrollSpeed = trackBarNews1Speed.Value;
+            saScrollingLabelNews1.ScrollSpeed = trackBarNews1Speed.Value;
 
             // Save Setting
             Settings.Default.Speed1 = trackBarNews1Speed.Value;
@@ -184,7 +186,7 @@ namespace DisplayNewsPanel
             Settings.Default.Direction1 = comboBoxNews1Direction.Text;
             Settings.Default.Save();
 
-            SetDirection(comboBoxNews1Direction,saScrollingLabelTextNews1);
+            SetDirection(comboBoxNews1Direction,saScrollingLabelNews1);
         }
 
         private void pictureBoxSettingPanelClose_Click(object sender, EventArgs e)
@@ -206,7 +208,7 @@ namespace DisplayNewsPanel
 
         private void textBoxNews2Text_TextChanged(object sender, EventArgs e)
         {
-            saScrollingLabelTextNews2.Text = textBoxNews2Text.Text;
+            saScrollingLabelNews2.Text = textBoxNews2Text.Text;
 
             // Save Setting
             Settings.Default.NewsText2 = textBoxNews2Text.Text;
@@ -219,19 +221,19 @@ namespace DisplayNewsPanel
             Settings.Default.Direction2 = comboBoxNews2Direction.Text;
             Settings.Default.Save();
 
-            SetDirection(comboBoxNews2Direction,saScrollingLabelTextNews2);
+            SetDirection(comboBoxNews2Direction,saScrollingLabelNews2);
         }
 
         private void buttonNews2ForeColor_Click(object sender, EventArgs e)
         {
-            _colorDialog = new ColorDialog { Color = saScrollingLabelTextNews2.ForeColor };
-            _colorDialog.Color = saScrollingLabelTextNews2.ForeColor;
+            _colorDialog = new ColorDialog { Color = saScrollingLabelNews2.ForeColor };
+            _colorDialog.Color = saScrollingLabelNews2.ForeColor;
             if (_colorDialog.ShowDialog() == DialogResult.OK)
             {
                 buttonNews2ForeColor.ForeColor = _colorDialog.Color;
                 buttonNews2BackColor.ForeColor = _colorDialog.Color;
 
-                saScrollingLabelTextNews2.ForeColor = _colorDialog.Color;
+                saScrollingLabelNews2.ForeColor = _colorDialog.Color;
 
                 // Save Setting
                 Settings.Default.ForeColor2 = _colorDialog.Color;
@@ -241,13 +243,13 @@ namespace DisplayNewsPanel
 
         private void buttonNews2BackColor_Click(object sender, EventArgs e)
         {
-            _colorDialog = new ColorDialog { Color = saScrollingLabelTextNews2.BackColor };
+            _colorDialog = new ColorDialog { Color = saScrollingLabelNews2.BackColor };
             if (_colorDialog.ShowDialog() == DialogResult.OK)
             {
                 buttonNews2ForeColor.BackColor = _colorDialog.Color;
                 buttonNews2BackColor.BackColor = _colorDialog.Color;
 
-                saScrollingLabelTextNews2.BackColor = _colorDialog.Color;
+                panelNews2.BackColor = _colorDialog.Color;
 
                 // Save Setting
                 Settings.Default.BackColor2 = _colorDialog.Color;
@@ -257,11 +259,11 @@ namespace DisplayNewsPanel
 
         private void buttonNews2TextStyle_Click(object sender, EventArgs e)
         {
-            _fontDialog = new FontDialog { Font = saScrollingLabelTextNews2.Font };
+            _fontDialog = new FontDialog { Font = saScrollingLabelNews2.Font };
 
             if (_fontDialog.ShowDialog() == DialogResult.OK)
             {
-                saScrollingLabelTextNews2.Font = _fontDialog.Font;
+                saScrollingLabelNews2.Font = _fontDialog.Font;
 
                 // Save Setting
                 Settings.Default.Font2 = _fontDialog.Font;
@@ -272,7 +274,7 @@ namespace DisplayNewsPanel
         private void trackBarNews2Speed_Scroll(object sender, EventArgs e)
         {
             labelNews2Speed.Text = trackBarNews2Speed.Value.ToString();
-            saScrollingLabelTextNews2.ScrollSpeed = trackBarNews2Speed.Value;
+            saScrollingLabelNews2.ScrollSpeed = trackBarNews2Speed.Value;
 
             // Save Setting
             Settings.Default.Speed2 = trackBarNews2Speed.Value;
@@ -282,6 +284,44 @@ namespace DisplayNewsPanel
         private void pictureBoxClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //left to right
+            //if (label5.Location.X>=tabPageNewsPicture.Width)
+            //{
+            //    label5.Location=new Point(-label5.Width);
+            //}
+            //else
+            //{
+            //    label5.Location=new Point(label5.Location.X+5);
+            //}
+
+            ////right to left
+            //if (label5.Location.X <= -label5.Width)
+            //{
+            //    label5.Location = new Point(+this.Width);
+            //}
+            //else
+            //{
+            //    label5.Location = new Point(label5.Location.X - 5);
+            //}
+
+        }
+
+        private void saScrollingLabelNews2_MouseHover(object sender, EventArgs e)
+        {
+            pictureBoxSetting.Visible = true;
+            pictureBoxClose.Visible = true;
+            timerSetting.Start();
+        }
+
+        private void saScrollingLabelNews1_MouseHover(object sender, EventArgs e)
+        {
+            pictureBoxSetting.Visible = true;
+            pictureBoxClose.Visible = true;
+            timerSetting.Start();
         }
 
 

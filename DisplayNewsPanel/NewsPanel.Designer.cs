@@ -62,13 +62,22 @@
             this.tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelNews = new System.Windows.Forms.TableLayoutPanel();
             this.saScrollingLabelTextNews1 = new ShakikulFramework.SAScrollingLabelText();
-            this.saScrollingLabelTextNews2 = new ShakikulFramework.SAScrollingLabelText();
             this.pictureBoxNewsImage = new System.Windows.Forms.PictureBox();
             this.pictureBoxSetting = new System.Windows.Forms.PictureBox();
             this.pictureBoxClose = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.saScrollingLabel1 = new ShakikulFramework.Toolbox.SAScrollingLabel();
+            this.panelNews1 = new System.Windows.Forms.Panel();
+            this.panelNews2 = new System.Windows.Forms.Panel();
+            this.saScrollingLabelNews2 = new ShakikulFramework.Toolbox.SAScrollingLabel();
+            this.saScrollingLabelNews1 = new ShakikulFramework.Toolbox.SAScrollingLabel();
             this.panelSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSettingPanelClose)).BeginInit();
             this.tabControlSetting.SuspendLayout();
+            this.tabPageNewsPicture.SuspendLayout();
             this.tabPageNews1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarNews1Speed)).BeginInit();
             this.tabPageNews2.SuspendLayout();
@@ -78,6 +87,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNewsImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSetting)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panelNews1.SuspendLayout();
+            this.panelNews2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSetting
@@ -124,7 +136,6 @@
             this.tabControlSetting.Controls.Add(this.tabPageNewsPicture);
             this.tabControlSetting.Controls.Add(this.tabPageNews1);
             this.tabControlSetting.Controls.Add(this.tabPageNews2);
-            this.tabControlSetting.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tabControlSetting.Location = new System.Drawing.Point(0, 36);
             this.tabControlSetting.Name = "tabControlSetting";
             this.tabControlSetting.SelectedIndex = 0;
@@ -133,16 +144,19 @@
             // 
             // tabPageNewsPicture
             // 
+            this.tabPageNewsPicture.BackColor = System.Drawing.Color.White;
+            this.tabPageNewsPicture.Controls.Add(this.saScrollingLabelTextNews1);
+            this.tabPageNewsPicture.Controls.Add(this.saScrollingLabel1);
             this.tabPageNewsPicture.Location = new System.Drawing.Point(4, 27);
             this.tabPageNewsPicture.Name = "tabPageNewsPicture";
             this.tabPageNewsPicture.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageNewsPicture.Size = new System.Drawing.Size(666, 187);
             this.tabPageNewsPicture.TabIndex = 0;
             this.tabPageNewsPicture.Text = "Picture";
-            this.tabPageNewsPicture.UseVisualStyleBackColor = true;
             // 
             // tabPageNews1
             // 
+            this.tabPageNews1.BackColor = System.Drawing.Color.White;
             this.tabPageNews1.Controls.Add(this.textBoxNews1Text);
             this.tabPageNews1.Controls.Add(this.label2);
             this.tabPageNews1.Controls.Add(this.buttonNews1BackColor);
@@ -159,7 +173,6 @@
             this.tabPageNews1.Size = new System.Drawing.Size(666, 187);
             this.tabPageNews1.TabIndex = 1;
             this.tabPageNews1.Text = "News 1";
-            this.tabPageNews1.UseVisualStyleBackColor = true;
             // 
             // textBoxNews1Text
             // 
@@ -270,6 +283,7 @@
             // 
             // tabPageNews2
             // 
+            this.tabPageNews2.BackColor = System.Drawing.Color.White;
             this.tabPageNews2.Controls.Add(this.textBoxNews2Text);
             this.tabPageNews2.Controls.Add(this.label1);
             this.tabPageNews2.Controls.Add(this.buttonNews2BackColor);
@@ -286,7 +300,6 @@
             this.tabPageNews2.Size = new System.Drawing.Size(666, 187);
             this.tabPageNews2.TabIndex = 2;
             this.tabPageNews2.Text = "News 2";
-            this.tabPageNews2.UseVisualStyleBackColor = true;
             // 
             // textBoxNews2Text
             // 
@@ -414,19 +427,20 @@
             this.tableLayoutPanelMain.Controls.Add(this.tableLayoutPanelNews, 1, 0);
             this.tableLayoutPanelMain.Controls.Add(this.pictureBoxNewsImage, 0, 0);
             this.tableLayoutPanelMain.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanelMain.Location = new System.Drawing.Point(0, 350);
+            this.tableLayoutPanelMain.Location = new System.Drawing.Point(0, 340);
             this.tableLayoutPanelMain.Name = "tableLayoutPanelMain";
             this.tableLayoutPanelMain.RowCount = 1;
             this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelMain.Size = new System.Drawing.Size(812, 70);
+            this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelMain.Size = new System.Drawing.Size(812, 80);
             this.tableLayoutPanelMain.TabIndex = 4;
             // 
             // tableLayoutPanelNews
             // 
             this.tableLayoutPanelNews.ColumnCount = 1;
             this.tableLayoutPanelNews.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelNews.Controls.Add(this.saScrollingLabelTextNews1, 0, 1);
-            this.tableLayoutPanelNews.Controls.Add(this.saScrollingLabelTextNews2, 0, 0);
+            this.tableLayoutPanelNews.Controls.Add(this.panelNews1, 0, 1);
+            this.tableLayoutPanelNews.Controls.Add(this.panelNews2, 0, 0);
             this.tableLayoutPanelNews.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelNews.Location = new System.Drawing.Point(103, 3);
             this.tableLayoutPanelNews.Name = "tableLayoutPanelNews";
@@ -437,13 +451,12 @@
             this.tableLayoutPanelNews.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanelNews.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanelNews.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelNews.Size = new System.Drawing.Size(706, 64);
+            this.tableLayoutPanelNews.Size = new System.Drawing.Size(706, 74);
             this.tableLayoutPanelNews.TabIndex = 8;
             // 
             // saScrollingLabelTextNews1
             // 
-            this.saScrollingLabelTextNews1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.saScrollingLabelTextNews1.Location = new System.Drawing.Point(3, 32);
+            this.saScrollingLabelTextNews1.Location = new System.Drawing.Point(37, 107);
             this.saScrollingLabelTextNews1.Name = "saScrollingLabelTextNews1";
             this.saScrollingLabelTextNews1.ScrollDirection = ShakikulFramework.ScrollingTextEnum.LeftToRight;
             this.saScrollingLabelTextNews1.Size = new System.Drawing.Size(700, 32);
@@ -452,27 +465,12 @@
             this.saScrollingLabelTextNews1.UseCompatibleTextRendering = true;
             this.saScrollingLabelTextNews1.MouseHover += new System.EventHandler(this.pictureBoxNewsImage_MouseHover);
             // 
-            // saScrollingLabelTextNews2
-            // 
-            this.saScrollingLabelTextNews2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.saScrollingLabelTextNews2.Image = global::DisplayNewsPanel.Properties.Resources.Close;
-            this.saScrollingLabelTextNews2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.saScrollingLabelTextNews2.Location = new System.Drawing.Point(3, 0);
-            this.saScrollingLabelTextNews2.Name = "saScrollingLabelTextNews2";
-            this.saScrollingLabelTextNews2.ScrollDirection = ShakikulFramework.ScrollingTextEnum.RightToLeft;
-            this.saScrollingLabelTextNews2.ScrollSpeed = 1;
-            this.saScrollingLabelTextNews2.Size = new System.Drawing.Size(700, 32);
-            this.saScrollingLabelTextNews2.TabIndex = 7;
-            this.saScrollingLabelTextNews2.Text = resources.GetString("saScrollingLabelTextNews2.Text");
-            this.saScrollingLabelTextNews2.UseCompatibleTextRendering = true;
-            this.saScrollingLabelTextNews2.MouseHover += new System.EventHandler(this.pictureBoxNewsImage_MouseHover);
-            // 
             // pictureBoxNewsImage
             // 
             this.pictureBoxNewsImage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBoxNewsImage.Location = new System.Drawing.Point(3, 3);
             this.pictureBoxNewsImage.Name = "pictureBoxNewsImage";
-            this.pictureBoxNewsImage.Size = new System.Drawing.Size(94, 64);
+            this.pictureBoxNewsImage.Size = new System.Drawing.Size(94, 74);
             this.pictureBoxNewsImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxNewsImage.TabIndex = 5;
             this.pictureBoxNewsImage.TabStop = false;
@@ -483,7 +481,7 @@
             this.pictureBoxSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxSetting.BackColor = System.Drawing.Color.White;
             this.pictureBoxSetting.Image = global::DisplayNewsPanel.Properties.Resources.Setting;
-            this.pictureBoxSetting.Location = new System.Drawing.Point(732, 317);
+            this.pictureBoxSetting.Location = new System.Drawing.Point(734, 307);
             this.pictureBoxSetting.Name = "pictureBoxSetting";
             this.pictureBoxSetting.Size = new System.Drawing.Size(30, 30);
             this.pictureBoxSetting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -497,7 +495,7 @@
             this.pictureBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxClose.BackColor = System.Drawing.Color.White;
             this.pictureBoxClose.Image = global::DisplayNewsPanel.Properties.Resources.Close;
-            this.pictureBoxClose.Location = new System.Drawing.Point(768, 317);
+            this.pictureBoxClose.Location = new System.Drawing.Point(770, 307);
             this.pictureBoxClose.Name = "pictureBoxClose";
             this.pictureBoxClose.Size = new System.Drawing.Size(30, 30);
             this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -506,11 +504,103 @@
             this.pictureBoxClose.Visible = false;
             this.pictureBoxClose.Click += new System.EventHandler(this.pictureBoxClose_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(53, 283);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 9;
+            this.textBox1.Text = "dsfadfasdfasdfasdfdfdsfasdfa asdfasdf asdf asdfasdfasdfasdfasdf adf asdf adsfas d" +
+    "fasdfasdfadfa fadf adfadsf asdfa sdfasdfasdfadsfadsfadsfadfadsfa sdfasdf as fasd" +
+    "f asdfasdfadfasdfa fasd fasdfasdf asd";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 10;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88F));
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(242, 280);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70.21277F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.78723F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(455, 47);
+            this.tableLayoutPanel1.TabIndex = 10;
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(57, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(395, 27);
+            this.panel1.TabIndex = 0;
+            // 
+            // saScrollingLabel1
+            // 
+            this.saScrollingLabel1.AutoSize = true;
+            this.saScrollingLabel1.Location = new System.Drawing.Point(34, 46);
+            this.saScrollingLabel1.Name = "saScrollingLabel1";
+            this.saScrollingLabel1.SelectControl = null;
+            this.saScrollingLabel1.Size = new System.Drawing.Size(1443, 18);
+            this.saScrollingLabel1.TabIndex = 7;
+            this.saScrollingLabel1.Text = resources.GetString("saScrollingLabel1.Text");
+            // 
+            // panelNews1
+            // 
+            this.panelNews1.Controls.Add(this.saScrollingLabelNews1);
+            this.panelNews1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelNews1.Location = new System.Drawing.Point(3, 40);
+            this.panelNews1.Name = "panelNews1";
+            this.panelNews1.Size = new System.Drawing.Size(700, 31);
+            this.panelNews1.TabIndex = 0;
+            // 
+            // panelNews2
+            // 
+            this.panelNews2.Controls.Add(this.saScrollingLabelNews2);
+            this.panelNews2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelNews2.Location = new System.Drawing.Point(3, 3);
+            this.panelNews2.Name = "panelNews2";
+            this.panelNews2.Size = new System.Drawing.Size(700, 31);
+            this.panelNews2.TabIndex = 1;
+            // 
+            // saScrollingLabelNews2
+            // 
+            this.saScrollingLabelNews2.AutoSize = true;
+            this.saScrollingLabelNews2.Location = new System.Drawing.Point(-42, 9);
+            this.saScrollingLabelNews2.Name = "saScrollingLabelNews2";
+            this.saScrollingLabelNews2.ScrollDirection = ShakikulFramework.ScrollingTextEnum.LeftToRight;
+            this.saScrollingLabelNews2.SelectControl = this.panelNews2;
+            this.saScrollingLabelNews2.Size = new System.Drawing.Size(973, 13);
+            this.saScrollingLabelNews2.TabIndex = 0;
+            this.saScrollingLabelNews2.Text = resources.GetString("saScrollingLabelNews2.Text");
+            this.saScrollingLabelNews2.MouseHover += new System.EventHandler(this.saScrollingLabelNews2_MouseHover);
+            // 
+            // saScrollingLabelNews1
+            // 
+            this.saScrollingLabelNews1.AutoSize = true;
+            this.saScrollingLabelNews1.Location = new System.Drawing.Point(-750, 9);
+            this.saScrollingLabelNews1.Name = "saScrollingLabelNews1";
+            this.saScrollingLabelNews1.ScrollDirection = ShakikulFramework.ScrollingTextEnum.RightToLeft;
+            this.saScrollingLabelNews1.SelectControl = this.panelNews2;
+            this.saScrollingLabelNews1.Size = new System.Drawing.Size(973, 13);
+            this.saScrollingLabelNews1.TabIndex = 1;
+            this.saScrollingLabelNews1.Text = resources.GetString("saScrollingLabelNews1.Text");
+            this.saScrollingLabelNews1.MouseHover += new System.EventHandler(this.saScrollingLabelNews1_MouseHover);
+            // 
             // NewsPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 420);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBoxClose);
             this.Controls.Add(this.pictureBoxSetting);
             this.Controls.Add(this.tableLayoutPanelMain);
@@ -525,6 +615,8 @@
             this.panelSetting.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSettingPanelClose)).EndInit();
             this.tabControlSetting.ResumeLayout(false);
+            this.tabPageNewsPicture.ResumeLayout(false);
+            this.tabPageNewsPicture.PerformLayout();
             this.tabPageNews1.ResumeLayout(false);
             this.tabPageNews1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarNews1Speed)).EndInit();
@@ -536,7 +628,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNewsImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSetting)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panelNews1.ResumeLayout(false);
+            this.panelNews1.PerformLayout();
+            this.panelNews2.ResumeLayout(false);
+            this.panelNews2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -577,7 +675,15 @@
         private System.Windows.Forms.TrackBar trackBarNews2Speed;
         private System.Windows.Forms.ComboBox comboBoxNews2Direction;
         private System.Windows.Forms.PictureBox pictureBoxClose;
-        private ShakikulFramework.SAScrollingLabelText saScrollingLabelTextNews2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private ShakikulFramework.Toolbox.SAScrollingLabel saScrollingLabel1;
+        private System.Windows.Forms.Panel panelNews1;
+        private System.Windows.Forms.Panel panelNews2;
+        private ShakikulFramework.Toolbox.SAScrollingLabel saScrollingLabelNews2;
+        private ShakikulFramework.Toolbox.SAScrollingLabel saScrollingLabelNews1;
     }
 }
 
