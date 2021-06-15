@@ -33,7 +33,7 @@
             this.labelTitle = new System.Windows.Forms.Label();
             this.pictureBoxSettingPanelClose = new System.Windows.Forms.PictureBox();
             this.tabControlSetting = new System.Windows.Forms.TabControl();
-            this.tabPageNewsPicture = new System.Windows.Forms.TabPage();
+            this.tabPageSetting = new System.Windows.Forms.TabPage();
             this.tabPageNews1 = new System.Windows.Forms.TabPage();
             this.textBoxNews1Text = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -67,6 +67,12 @@
             this.checkBoxNews2BackColor = new System.Windows.Forms.CheckBox();
             this.checkBoxNews1BackColor = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.labelDateTime = new System.Windows.Forms.Label();
+            this.timerDateTime = new System.Windows.Forms.Timer(this.components);
+            this.tabPageDateTime = new System.Windows.Forms.TabPage();
+            this.buttonDateTimeBackColor = new System.Windows.Forms.Button();
+            this.buttonDateTimeFont = new System.Windows.Forms.Button();
+            this.buttonDateTimeForeColor = new System.Windows.Forms.Button();
             this.panelSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSettingPanelClose)).BeginInit();
             this.tabControlSetting.SuspendLayout();
@@ -77,16 +83,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSetting)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.panelSettingButton.SuspendLayout();
+            this.tabPageDateTime.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSetting
             // 
-            this.panelSetting.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelSetting.BackColor = System.Drawing.Color.Navy;
             this.panelSetting.Controls.Add(this.labelTitle);
             this.panelSetting.Controls.Add(this.pictureBoxSettingPanelClose);
             this.panelSetting.Controls.Add(this.tabControlSetting);
             this.panelSetting.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelSetting.Location = new System.Drawing.Point(75, 23);
+            this.panelSetting.Location = new System.Drawing.Point(66, 12);
             this.panelSetting.Name = "panelSetting";
             this.panelSetting.Size = new System.Drawing.Size(674, 254);
             this.panelSetting.TabIndex = 2;
@@ -97,7 +104,7 @@
             this.labelTitle.AutoSize = true;
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelTitle.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitle.ForeColor = System.Drawing.Color.Black;
+            this.labelTitle.ForeColor = System.Drawing.Color.White;
             this.labelTitle.Location = new System.Drawing.Point(3, 3);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(75, 22);
@@ -120,24 +127,25 @@
             // 
             // tabControlSetting
             // 
-            this.tabControlSetting.Controls.Add(this.tabPageNewsPicture);
+            this.tabControlSetting.Controls.Add(this.tabPageSetting);
             this.tabControlSetting.Controls.Add(this.tabPageNews1);
             this.tabControlSetting.Controls.Add(this.tabPageNews2);
+            this.tabControlSetting.Controls.Add(this.tabPageDateTime);
             this.tabControlSetting.Location = new System.Drawing.Point(0, 36);
             this.tabControlSetting.Name = "tabControlSetting";
             this.tabControlSetting.SelectedIndex = 0;
             this.tabControlSetting.Size = new System.Drawing.Size(674, 218);
             this.tabControlSetting.TabIndex = 15;
             // 
-            // tabPageNewsPicture
+            // tabPageSetting
             // 
-            this.tabPageNewsPicture.BackColor = System.Drawing.Color.White;
-            this.tabPageNewsPicture.Location = new System.Drawing.Point(4, 27);
-            this.tabPageNewsPicture.Name = "tabPageNewsPicture";
-            this.tabPageNewsPicture.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageNewsPicture.Size = new System.Drawing.Size(666, 187);
-            this.tabPageNewsPicture.TabIndex = 0;
-            this.tabPageNewsPicture.Text = "Picture";
+            this.tabPageSetting.BackColor = System.Drawing.Color.White;
+            this.tabPageSetting.Location = new System.Drawing.Point(4, 27);
+            this.tabPageSetting.Name = "tabPageSetting";
+            this.tabPageSetting.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageSetting.Size = new System.Drawing.Size(666, 187);
+            this.tabPageSetting.TabIndex = 0;
+            this.tabPageSetting.Text = "Setting";
             // 
             // tabPageNews1
             // 
@@ -246,7 +254,7 @@
             // trackBarNews1Speed
             // 
             this.trackBarNews1Speed.AutoSize = false;
-            this.trackBarNews1Speed.BackColor = System.Drawing.Color.DarkGreen;
+            this.trackBarNews1Speed.BackColor = System.Drawing.Color.Navy;
             this.trackBarNews1Speed.Cursor = System.Windows.Forms.Cursors.Hand;
             this.trackBarNews1Speed.LargeChange = 1;
             this.trackBarNews1Speed.Location = new System.Drawing.Point(109, 111);
@@ -375,7 +383,7 @@
             // trackBarNews2Speed
             // 
             this.trackBarNews2Speed.AutoSize = false;
-            this.trackBarNews2Speed.BackColor = System.Drawing.Color.DarkGreen;
+            this.trackBarNews2Speed.BackColor = System.Drawing.Color.Navy;
             this.trackBarNews2Speed.Cursor = System.Windows.Forms.Cursors.Hand;
             this.trackBarNews2Speed.LargeChange = 1;
             this.trackBarNews2Speed.Location = new System.Drawing.Point(109, 111);
@@ -465,7 +473,7 @@
             this.panelSettingButton.BackColor = System.Drawing.SystemColors.Control;
             this.panelSettingButton.Controls.Add(this.pictureBoxSetting);
             this.panelSettingButton.Controls.Add(this.pictureBoxClose);
-            this.panelSettingButton.Location = new System.Drawing.Point(414, 321);
+            this.panelSettingButton.Location = new System.Drawing.Point(682, 304);
             this.panelSettingButton.Name = "panelSettingButton";
             this.panelSettingButton.Size = new System.Drawing.Size(86, 44);
             this.panelSettingButton.TabIndex = 9;
@@ -513,11 +521,78 @@
             this.label8.TabIndex = 26;
             this.label8.Text = "Back Color";
             // 
+            // labelDateTime
+            // 
+            this.labelDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelDateTime.AutoSize = true;
+            this.labelDateTime.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.labelDateTime.Location = new System.Drawing.Point(21, 372);
+            this.labelDateTime.Name = "labelDateTime";
+            this.labelDateTime.Size = new System.Drawing.Size(57, 13);
+            this.labelDateTime.TabIndex = 10;
+            this.labelDateTime.Text = "Date TIme";
+            // 
+            // timerDateTime
+            // 
+            this.timerDateTime.Enabled = true;
+            this.timerDateTime.Interval = 1000;
+            this.timerDateTime.Tick += new System.EventHandler(this.timerDateTime_Tick);
+            // 
+            // tabPageDateTime
+            // 
+            this.tabPageDateTime.Controls.Add(this.buttonDateTimeBackColor);
+            this.tabPageDateTime.Controls.Add(this.buttonDateTimeFont);
+            this.tabPageDateTime.Controls.Add(this.buttonDateTimeForeColor);
+            this.tabPageDateTime.Location = new System.Drawing.Point(4, 27);
+            this.tabPageDateTime.Name = "tabPageDateTime";
+            this.tabPageDateTime.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDateTime.Size = new System.Drawing.Size(666, 187);
+            this.tabPageDateTime.TabIndex = 3;
+            this.tabPageDateTime.Text = "Date Time";
+            this.tabPageDateTime.UseVisualStyleBackColor = true;
+            // 
+            // buttonDateTimeBackColor
+            // 
+            this.buttonDateTimeBackColor.AutoSize = true;
+            this.buttonDateTimeBackColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDateTimeBackColor.Location = new System.Drawing.Point(258, 64);
+            this.buttonDateTimeBackColor.Name = "buttonDateTimeBackColor";
+            this.buttonDateTimeBackColor.Size = new System.Drawing.Size(102, 30);
+            this.buttonDateTimeBackColor.TabIndex = 32;
+            this.buttonDateTimeBackColor.Text = "Back Color";
+            this.buttonDateTimeBackColor.UseVisualStyleBackColor = true;
+            this.buttonDateTimeBackColor.Click += new System.EventHandler(this.buttonDateTimeBackColor_Click);
+            // 
+            // buttonDateTimeFont
+            // 
+            this.buttonDateTimeFont.AutoSize = true;
+            this.buttonDateTimeFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDateTimeFont.Location = new System.Drawing.Point(366, 64);
+            this.buttonDateTimeFont.Name = "buttonDateTimeFont";
+            this.buttonDateTimeFont.Size = new System.Drawing.Size(132, 30);
+            this.buttonDateTimeFont.TabIndex = 31;
+            this.buttonDateTimeFont.Text = "Font, Style, Size";
+            this.buttonDateTimeFont.UseVisualStyleBackColor = true;
+            this.buttonDateTimeFont.Click += new System.EventHandler(this.buttonDateTimeFont_Click);
+            // 
+            // buttonDateTimeForeColor
+            // 
+            this.buttonDateTimeForeColor.AutoSize = true;
+            this.buttonDateTimeForeColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDateTimeForeColor.Location = new System.Drawing.Point(157, 64);
+            this.buttonDateTimeForeColor.Name = "buttonDateTimeForeColor";
+            this.buttonDateTimeForeColor.Size = new System.Drawing.Size(95, 30);
+            this.buttonDateTimeForeColor.TabIndex = 30;
+            this.buttonDateTimeForeColor.Text = "Fore Color";
+            this.buttonDateTimeForeColor.UseVisualStyleBackColor = true;
+            this.buttonDateTimeForeColor.Click += new System.EventHandler(this.buttonDateTimeForeColor_Click);
+            // 
             // NewsPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 420);
+            this.Controls.Add(this.labelDateTime);
             this.Controls.Add(this.panelSettingButton);
             this.Controls.Add(this.saScrollingLabelNews2);
             this.Controls.Add(this.saScrollingLabelNews1);
@@ -541,6 +616,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSetting)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.panelSettingButton.ResumeLayout(false);
+            this.tabPageDateTime.ResumeLayout(false);
+            this.tabPageDateTime.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -565,7 +642,7 @@
         private System.Windows.Forms.PictureBox pictureBoxSettingPanelClose;
         private System.Windows.Forms.PictureBox pictureBoxSetting;
         private System.Windows.Forms.TabControl tabControlSetting;
-        private System.Windows.Forms.TabPage tabPageNewsPicture;
+        private System.Windows.Forms.TabPage tabPageSetting;
         private System.Windows.Forms.TabPage tabPageNews1;
         private System.Windows.Forms.TabPage tabPageNews2;
         private System.Windows.Forms.TextBox textBoxNews2Text;
@@ -586,6 +663,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox checkBoxNews1BackColor;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelDateTime;
+        private System.Windows.Forms.Timer timerDateTime;
+        private System.Windows.Forms.TabPage tabPageDateTime;
+        private System.Windows.Forms.Button buttonDateTimeBackColor;
+        private System.Windows.Forms.Button buttonDateTimeFont;
+        private System.Windows.Forms.Button buttonDateTimeForeColor;
     }
 }
 

@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Printing;
+using System.Linq;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using DisplayNewsPanel.Properties;
 using ShakikulFramework;
 using ShakikulFramework.Toolbox;
@@ -21,6 +24,8 @@ namespace DisplayNewsPanel
             DirectionList(comboBoxNews2Direction);
 
             LoadSetting();
+
+            DateTimeFormat();
 
             this.TopMost = true;
         }
@@ -75,11 +80,30 @@ namespace DisplayNewsPanel
 
             #endregion
 
-            SetNewsLineLocationY();
+            #region Date Time
+
+            buttonDateTimeBackColor.BackColor = Settings.Default.DateTimeBackColor;
+            buttonDateTimeBackColor.ForeColor = Settings.Default.DateTimeForeColor;
+            buttonDateTimeForeColor.ForeColor = Settings.Default.DateTimeBackColor;
+            buttonDateTimeForeColor.ForeColor = Settings.Default.DateTimeForeColor;
+
+            labelDateTime.BackColor = Settings.Default.DateTimeBackColor;
+            labelDateTime.ForeColor = Settings.Default.DateTimeForeColor;
+            labelDateTime.Font = Settings.Default.DateTimeFont;
+            
+            #endregion
+
+            SetNewsLineLocation();
         }
 
-        private void SetNewsLineLocationY()
+        private void DateTimeFormat()
         {
+            //DateTimePicker format=new DateTimePicker();
+            //comboBoxDateFormat.Items.Add(format);
+        }
+        private void SetNewsLineLocation()
+        {
+            //..Set NewsLineLocation
             saScrollingLabelNews1.Location = new Point(saScrollingLabelNews1.Location.X,
                 this.Height - saScrollingLabelNews1.Height);
             saScrollingLabelNews2.Location = new Point(saScrollingLabelNews2.Location.X,
@@ -88,6 +112,10 @@ namespace DisplayNewsPanel
             //..Set PanelSettingButton location
             panelSettingButton.Location = new Point(this.Width - panelSettingButton.Width,
                 this.Height - saScrollingLabelNews1.Height - saScrollingLabelNews2.Height -panelSettingButton.Height);
+
+            //..Set DateTime location
+            labelDateTime.Location = new Point(10,
+                this.Height - saScrollingLabelNews1.Height - saScrollingLabelNews2.Height - labelDateTime.Height-2);
         }
 
         private void DirectionList(ComboBox comboBox)
@@ -95,15 +123,6 @@ namespace DisplayNewsPanel
             comboBox.Items.Add("None");
             comboBox.Items.Add("Left To Right");
             comboBox.Items.Add("Right To Left");
-
-            //if (saScrollingLabelText1.ScrollDirection == ScrollingTextEnum.None)
-            //    comboBoxDirection.Text = "None";
-
-            //if (saScrollingLabelText1.ScrollDirection == ScrollingTextEnum.LeftToRight)
-            //    comboBoxDirection.Text = "Left To Right";
-
-            //if (saScrollingLabelText1.ScrollDirection == ScrollingTextEnum.RightToLeft)
-            //    comboBoxDirection.Text = "Right To Left";
         }
 
         private void SetDirection(ComboBox comboBox, SAScrollingLabel label)
@@ -135,7 +154,6 @@ namespace DisplayNewsPanel
         {
             saScrollingLabelNews1.Text = textBoxNews1Text.Text;
 
-            // Save Setting
             Settings.Default.NewsText1 = textBoxNews1Text.Text;
             Settings.Default.Save();
         }
@@ -151,7 +169,6 @@ namespace DisplayNewsPanel
 
                 saScrollingLabelNews1.ForeColor = _colorDialog.Color;
                 
-                // Save Setting
                 Settings.Default.ForeColor1 = _colorDialog.Color;
                 Settings.Default.Save();
             }
@@ -165,9 +182,8 @@ namespace DisplayNewsPanel
             {
                 saScrollingLabelNews1.Font = _fontDialog.Font;
 
-                SetNewsLineLocationY();
+                SetNewsLineLocation();
 
-                // Save Setting
                 Settings.Default.Font1 = _fontDialog.Font;
                 Settings.Default.Save();
             }
@@ -183,7 +199,6 @@ namespace DisplayNewsPanel
 
                 saScrollingLabelNews1.BackColor = _colorDialog.Color;
 
-                // Save Setting
                 Settings.Default.BackColor1 = _colorDialog.Color;
                 Settings.Default.Save();
             }
@@ -194,14 +209,12 @@ namespace DisplayNewsPanel
             labelNews1Speed.Text = trackBarNews1Speed.Value.ToString();
             saScrollingLabelNews1.ScrollSpeed = trackBarNews1Speed.Value;
 
-            // Save Setting
             Settings.Default.Speed1 = trackBarNews1Speed.Value;
             Settings.Default.Save();
         }
 
         private void comboBoxDirection_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Save Setting
             Settings.Default.Direction1 = comboBoxNews1Direction.Text;
             Settings.Default.Save();
 
@@ -222,14 +235,12 @@ namespace DisplayNewsPanel
         {
             saScrollingLabelNews2.Text = textBoxNews2Text.Text;
 
-            // Save Setting
             Settings.Default.NewsText2 = textBoxNews2Text.Text;
             Settings.Default.Save();
         }
 
         private void comboBoxNews2Direction_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Save Setting
             Settings.Default.Direction2 = comboBoxNews2Direction.Text;
             Settings.Default.Save();
 
@@ -247,7 +258,6 @@ namespace DisplayNewsPanel
 
                 saScrollingLabelNews2.ForeColor = _colorDialog.Color;
 
-                // Save Setting
                 Settings.Default.ForeColor2 = _colorDialog.Color;
                 Settings.Default.Save();
             }
@@ -263,7 +273,6 @@ namespace DisplayNewsPanel
 
                 saScrollingLabelNews2.BackColor = _colorDialog.Color;
 
-                // Save Setting
                 Settings.Default.BackColor2 = _colorDialog.Color;
                 Settings.Default.Save();
             }
@@ -277,9 +286,8 @@ namespace DisplayNewsPanel
             {
                 saScrollingLabelNews2.Font = _fontDialog.Font;
 
-                SetNewsLineLocationY();
+                SetNewsLineLocation();
 
-                // Save Setting
                 Settings.Default.Font2 = _fontDialog.Font;
                 Settings.Default.Save();
             }
@@ -290,7 +298,6 @@ namespace DisplayNewsPanel
             labelNews2Speed.Text = trackBarNews2Speed.Value.ToString();
             saScrollingLabelNews2.ScrollSpeed = trackBarNews2Speed.Value;
 
-            // Save Setting
             Settings.Default.Speed2 = trackBarNews2Speed.Value;
             Settings.Default.Save();
         }
@@ -345,6 +352,57 @@ namespace DisplayNewsPanel
                 saScrollingLabelNews1.BackColor = SystemColors.Control;
                 buttonNews1BackColor.Enabled = false;
                 Settings.Default.TransparentBackColor1 = false;
+                Settings.Default.Save();
+            }
+        }
+
+        private void timerDateTime_Tick(object sender, EventArgs e)
+        {
+            labelDateTime.Text = DateTime.Now.ToLongTimeString();
+        }
+        
+        private void buttonDateTimeForeColor_Click(object sender, EventArgs e)
+        {
+            _colorDialog = new ColorDialog { Color = labelDateTime.ForeColor };
+            
+            if (_colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                buttonDateTimeBackColor.ForeColor = _colorDialog.Color;
+                buttonDateTimeForeColor.ForeColor = _colorDialog.Color;
+
+                labelDateTime.ForeColor = _colorDialog.Color;
+
+                Settings.Default.DateTimeForeColor = _colorDialog.Color;
+                Settings.Default.Save();
+            }
+        }
+
+        private void buttonDateTimeBackColor_Click(object sender, EventArgs e)
+        {
+            _colorDialog = new ColorDialog { Color = labelDateTime.BackColor };
+            if (_colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                buttonDateTimeBackColor.BackColor = _colorDialog.Color;
+                buttonDateTimeForeColor.BackColor = _colorDialog.Color;
+
+                labelDateTime.BackColor = _colorDialog.Color;
+
+                Settings.Default.DateTimeBackColor = _colorDialog.Color;
+                Settings.Default.Save();
+            }
+        }
+
+        private void buttonDateTimeFont_Click(object sender, EventArgs e)
+        {
+            _fontDialog = new FontDialog { Font = labelDateTime.Font };
+
+            if (_fontDialog.ShowDialog() == DialogResult.OK)
+            {
+                labelDateTime.Font = _fontDialog.Font;
+
+                SetNewsLineLocation();
+
+                Settings.Default.DateTimeFont = _fontDialog.Font;
                 Settings.Default.Save();
             }
         }

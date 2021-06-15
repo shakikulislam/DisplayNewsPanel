@@ -188,5 +188,38 @@ namespace DisplayNewsPanel.Properties {
                 this["TransparentBackColor2"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color DateTimeForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["DateTimeForeColor"]));
+            }
+            set {
+                this["DateTimeForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color DateTimeBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["DateTimeBackColor"]));
+            }
+            set {
+                this["DateTimeBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Font DateTimeFont {
+            get {
+                return ((global::System.Drawing.Font)(this["DateTimeFont"]));
+            }
+            set {
+                this["DateTimeFont"] = value;
+            }
+        }
     }
 }
