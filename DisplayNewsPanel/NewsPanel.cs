@@ -42,9 +42,12 @@ namespace DisplayNewsPanel
 
             saScrollingLabelNews1.Text = Settings.Default.NewsText1;
             saScrollingLabelNews1.ForeColor = Settings.Default.ForeColor1;
-            panelNews1.BackColor = Settings.Default.BackColor1;
+            saScrollingLabelNews1.BackColor = Settings.Default.BackColor1;
             saScrollingLabelNews1.Font = Settings.Default.Font1;
             saScrollingLabelNews1.ScrollSpeed = Settings.Default.Speed1;
+
+            checkBoxNews1BackColor.Checked = Settings.Default.TransparentBackColor1;
+            buttonNews1BackColor.Enabled=Settings.Default.TransparentBackColor1;
 
             #endregion
 
@@ -63,13 +66,28 @@ namespace DisplayNewsPanel
 
             saScrollingLabelNews2.Text = Settings.Default.NewsText2;
             saScrollingLabelNews2.ForeColor = Settings.Default.ForeColor2;
-            panelNews2.BackColor = Settings.Default.BackColor2;
+            saScrollingLabelNews2.BackColor = Settings.Default.BackColor2;
             saScrollingLabelNews2.Font = Settings.Default.Font2;
             saScrollingLabelNews2.ScrollSpeed = Settings.Default.Speed2;
 
+            checkBoxNews2BackColor.Checked = Settings.Default.TransparentBackColor2;
+            buttonNews2BackColor.Enabled=Settings.Default.TransparentBackColor2;
+
             #endregion
 
+            SetNewsLineLocationY();
+        }
 
+        private void SetNewsLineLocationY()
+        {
+            saScrollingLabelNews1.Location = new Point(saScrollingLabelNews1.Location.X,
+                this.Height - saScrollingLabelNews1.Height);
+            saScrollingLabelNews2.Location = new Point(saScrollingLabelNews2.Location.X,
+                this.Height - (saScrollingLabelNews1.Height + saScrollingLabelNews2.Height));
+
+            //..Set PanelSettingButton location
+            panelSettingButton.Location = new Point(this.Width - panelSettingButton.Width,
+                this.Height - saScrollingLabelNews1.Height - saScrollingLabelNews2.Height -panelSettingButton.Height);
         }
 
         private void DirectionList(ComboBox comboBox)
@@ -107,8 +125,7 @@ namespace DisplayNewsPanel
             if (_count>10)
             {
                 _count = 0;
-                pictureBoxSetting.Visible = false;
-                pictureBoxClose.Visible = false;
+                panelSettingButton.Visible = false;
 
                 timerSetting.Stop();
             }
@@ -143,17 +160,19 @@ namespace DisplayNewsPanel
         private void buttonTextStyle_Click(object sender, EventArgs e)
         {
             _fontDialog=new FontDialog {Font = saScrollingLabelNews1.Font};
-
+            
             if (_fontDialog.ShowDialog() == DialogResult.OK)
             {
                 saScrollingLabelNews1.Font = _fontDialog.Font;
+
+                SetNewsLineLocationY();
 
                 // Save Setting
                 Settings.Default.Font1 = _fontDialog.Font;
                 Settings.Default.Save();
             }
         }
-
+        
         private void buttonBackColor_Click(object sender, EventArgs e)
         {
             _colorDialog = new ColorDialog {Color = saScrollingLabelNews1.BackColor};
@@ -162,7 +181,7 @@ namespace DisplayNewsPanel
                 buttonNews1ForeColor.BackColor = _colorDialog.Color;
                 buttonNews1BackColor.BackColor = _colorDialog.Color;
 
-                panelNews1.BackColor = _colorDialog.Color;
+                saScrollingLabelNews1.BackColor = _colorDialog.Color;
 
                 // Save Setting
                 Settings.Default.BackColor1 = _colorDialog.Color;
@@ -198,14 +217,7 @@ namespace DisplayNewsPanel
         {
             panelSetting.Visible = true;
         }
-
-        private void pictureBoxNewsImage_MouseHover(object sender, EventArgs e)
-        {
-            pictureBoxSetting.Visible = true;
-            pictureBoxClose.Visible = true;
-            timerSetting.Start();
-        }
-
+        
         private void textBoxNews2Text_TextChanged(object sender, EventArgs e)
         {
             saScrollingLabelNews2.Text = textBoxNews2Text.Text;
@@ -249,7 +261,7 @@ namespace DisplayNewsPanel
                 buttonNews2ForeColor.BackColor = _colorDialog.Color;
                 buttonNews2BackColor.BackColor = _colorDialog.Color;
 
-                panelNews2.BackColor = _colorDialog.Color;
+                saScrollingLabelNews2.BackColor = _colorDialog.Color;
 
                 // Save Setting
                 Settings.Default.BackColor2 = _colorDialog.Color;
@@ -264,6 +276,8 @@ namespace DisplayNewsPanel
             if (_fontDialog.ShowDialog() == DialogResult.OK)
             {
                 saScrollingLabelNews2.Font = _fontDialog.Font;
+
+                SetNewsLineLocationY();
 
                 // Save Setting
                 Settings.Default.Font2 = _fontDialog.Font;
@@ -286,42 +300,53 @@ namespace DisplayNewsPanel
             Application.Exit();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            //left to right
-            //if (label5.Location.X>=tabPageNewsPicture.Width)
-            //{
-            //    label5.Location=new Point(-label5.Width);
-            //}
-            //else
-            //{
-            //    label5.Location=new Point(label5.Location.X+5);
-            //}
-
-            ////right to left
-            //if (label5.Location.X <= -label5.Width)
-            //{
-            //    label5.Location = new Point(+this.Width);
-            //}
-            //else
-            //{
-            //    label5.Location = new Point(label5.Location.X - 5);
-            //}
-
-        }
-
         private void saScrollingLabelNews2_MouseHover(object sender, EventArgs e)
         {
-            pictureBoxSetting.Visible = true;
-            pictureBoxClose.Visible = true;
+            panelSettingButton.Visible = true;
             timerSetting.Start();
         }
 
         private void saScrollingLabelNews1_MouseHover(object sender, EventArgs e)
         {
-            pictureBoxSetting.Visible = true;
-            pictureBoxClose.Visible = true;
+            panelSettingButton.Visible = true;
             timerSetting.Start();
+        }
+
+        private void checkBoxNews2BackColor_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxNews2BackColor.Checked)
+            {
+                saScrollingLabelNews2.BackColor = Settings.Default.BackColor2;
+                buttonNews2BackColor.Enabled = true;
+                Settings.Default.TransparentBackColor2 = true;
+                Settings.Default.Save();
+            }
+            else
+            {
+                saScrollingLabelNews2.BackColor = SystemColors.Control;
+                buttonNews2BackColor.Enabled = false;
+                Settings.Default.TransparentBackColor2 = false;
+                Settings.Default.Save();
+            }
+                
+        }
+
+        private void checkBoxNews1BackColor_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxNews1BackColor.Checked)
+            {
+                saScrollingLabelNews1.BackColor = Settings.Default.BackColor1;
+                buttonNews1BackColor.Enabled = true;
+                Settings.Default.TransparentBackColor1 = true;
+                Settings.Default.Save();
+            }
+            else
+            {
+                saScrollingLabelNews1.BackColor = SystemColors.Control;
+                buttonNews1BackColor.Enabled = false;
+                Settings.Default.TransparentBackColor1 = false;
+                Settings.Default.Save();
+            }
         }
 
 

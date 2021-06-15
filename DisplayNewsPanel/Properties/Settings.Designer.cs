@@ -164,5 +164,29 @@ namespace DisplayNewsPanel.Properties {
                 this["Speed2"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool TransparentBackColor1 {
+            get {
+                return ((bool)(this["TransparentBackColor1"]));
+            }
+            set {
+                this["TransparentBackColor1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool TransparentBackColor2 {
+            get {
+                return ((bool)(this["TransparentBackColor2"]));
+            }
+            set {
+                this["TransparentBackColor2"] = value;
+            }
+        }
     }
 }
