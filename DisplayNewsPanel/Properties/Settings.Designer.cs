@@ -233,5 +233,41 @@ namespace DisplayNewsPanel.Properties {
                 this["SettingPanelLocation"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LogoLink {
+            get {
+                return ((string)(this["LogoLink"]));
+            }
+            set {
+                this["LogoLink"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Size LogoSize {
+            get {
+                return ((global::System.Drawing.Size)(this["LogoSize"]));
+            }
+            set {
+                this["LogoSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LogoLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["LogoLocation"]));
+            }
+            set {
+                this["LogoLocation"] = value;
+            }
+        }
     }
 }

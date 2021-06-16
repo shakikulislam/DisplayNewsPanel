@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
+using System.Resources;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using DisplayNewsPanel.Properties;
@@ -15,6 +16,7 @@ namespace DisplayNewsPanel
 
         private ColorDialog _colorDialog;
         private FontDialog _fontDialog;
+        private OpenFileDialog _openFileDialog;
 
         public NewsPanel()
         {
@@ -93,7 +95,19 @@ namespace DisplayNewsPanel
             
             #endregion
 
+
             SetNewsLineLocation();
+
+            
+            #region Logo
+
+            numericUpDownLogoSize.Text = Settings.Default.LogoSize.Height.ToString();
+            pictureBoxLogo.ImageLocation = Settings.Default.LogoLink;
+            pictureBoxLogo.Location = Settings.Default.LogoLocation;
+            pictureBoxLogo.Size = Settings.Default.LogoSize;
+            
+
+            #endregion
         }
 
         private void DateTimeFormat()
@@ -229,7 +243,7 @@ namespace DisplayNewsPanel
         private void pictureBoxSetting_Click(object sender, EventArgs e)
         {
             panelSetting.Visible = true;
-            //panelSetting.Location = Settings.Default.SettingPanelLocation;
+            panelSetting.Location = Settings.Default.SettingPanelLocation;
         }
         
         private void textBoxNews2Text_TextChanged(object sender, EventArgs e)
@@ -434,6 +448,29 @@ namespace DisplayNewsPanel
             Settings.Default.SettingPanelLocation = panelSetting.Location;
             Settings.Default.Save();
             
+        }
+
+        private void buttonBrowsLogo_Click(object sender, EventArgs e)
+        {
+            _openFileDialog=new OpenFileDialog();
+            if (_openFileDialog.ShowDialog()==DialogResult.OK)
+            {
+                pictureBoxLogo.ImageLocation = _openFileDialog.FileName;
+
+                Settings.Default.LogoLink = _openFileDialog.FileName;
+                Settings.Default.Save();
+            }
+        }
+
+        private void numericUpDownLogoSize_ValueChanged(object sender, EventArgs e)
+        {
+            pictureBoxLogo.Size=new Size((int) numericUpDownLogoSize.Value, (int)numericUpDownLogoSize.Value);
+
+            pictureBoxLogo.Location=new Point(this.Width-pictureBoxLogo.Width-20, pictureBoxLogo.Location.Y);
+
+            Settings.Default.LogoSize = pictureBoxLogo.Size;
+            Settings.Default.LogoLocation = pictureBoxLogo.Location;
+            Settings.Default.Save();
         }
 
 

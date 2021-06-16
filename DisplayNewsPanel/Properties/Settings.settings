@@ -56,5 +56,14 @@
     <Setting Name="SettingPanelLocation" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">0, 1</Value>
     </Setting>
+    <Setting Name="LogoLink" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LogoSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">0, 0</Value>
+    </Setting>
+    <Setting Name="LogoLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">0, 0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

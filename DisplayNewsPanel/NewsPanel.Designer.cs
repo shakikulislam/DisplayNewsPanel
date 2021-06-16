@@ -73,9 +73,14 @@
             this.panelSettingButton = new System.Windows.Forms.Panel();
             this.labelDateTime = new System.Windows.Forms.Label();
             this.timerDateTime = new System.Windows.Forms.Timer(this.components);
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.buttonBrowsLogo = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.numericUpDownLogoSize = new System.Windows.Forms.NumericUpDown();
             this.panelSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSettingPanelClose)).BeginInit();
             this.tabControlSetting.SuspendLayout();
+            this.tabPageSetting.SuspendLayout();
             this.tabPageNews1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarNews1Speed)).BeginInit();
             this.tabPageNews2.SuspendLayout();
@@ -84,6 +89,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSetting)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.panelSettingButton.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLogoSize)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSetting
@@ -141,6 +148,9 @@
             // tabPageSetting
             // 
             this.tabPageSetting.BackColor = System.Drawing.Color.White;
+            this.tabPageSetting.Controls.Add(this.numericUpDownLogoSize);
+            this.tabPageSetting.Controls.Add(this.label9);
+            this.tabPageSetting.Controls.Add(this.buttonBrowsLogo);
             this.tabPageSetting.Location = new System.Drawing.Point(4, 27);
             this.tabPageSetting.Name = "tabPageSetting";
             this.tabPageSetting.Padding = new System.Windows.Forms.Padding(3);
@@ -539,7 +549,7 @@
             // 
             this.pictureBoxSetting.BackColor = System.Drawing.Color.White;
             this.pictureBoxSetting.Image = global::DisplayNewsPanel.Properties.Resources.Setting;
-            this.pictureBoxSetting.Location = new System.Drawing.Point(4, 3);
+            this.pictureBoxSetting.Location = new System.Drawing.Point(6, 5);
             this.pictureBoxSetting.Name = "pictureBoxSetting";
             this.pictureBoxSetting.Size = new System.Drawing.Size(30, 30);
             this.pictureBoxSetting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -551,7 +561,7 @@
             // 
             this.pictureBoxClose.BackColor = System.Drawing.Color.White;
             this.pictureBoxClose.Image = global::DisplayNewsPanel.Properties.Resources.Close;
-            this.pictureBoxClose.Location = new System.Drawing.Point(40, 3);
+            this.pictureBoxClose.Location = new System.Drawing.Point(42, 5);
             this.pictureBoxClose.Name = "pictureBoxClose";
             this.pictureBoxClose.Size = new System.Drawing.Size(30, 30);
             this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -565,9 +575,9 @@
             this.panelSettingButton.BackColor = System.Drawing.Color.Transparent;
             this.panelSettingButton.Controls.Add(this.pictureBoxSetting);
             this.panelSettingButton.Controls.Add(this.pictureBoxClose);
-            this.panelSettingButton.Location = new System.Drawing.Point(654, 292);
+            this.panelSettingButton.Location = new System.Drawing.Point(695, 315);
             this.panelSettingButton.Name = "panelSettingButton";
-            this.panelSettingButton.Size = new System.Drawing.Size(86, 44);
+            this.panelSettingButton.Size = new System.Drawing.Size(78, 40);
             this.panelSettingButton.TabIndex = 9;
             this.panelSettingButton.Visible = false;
             // 
@@ -588,12 +598,67 @@
             this.timerDateTime.Interval = 1000;
             this.timerDateTime.Tick += new System.EventHandler(this.timerDateTime_Tick);
             // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxLogo.Location = new System.Drawing.Point(700, 12);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(100, 100);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxLogo.TabIndex = 11;
+            this.pictureBoxLogo.TabStop = false;
+            // 
+            // buttonBrowsLogo
+            // 
+            this.buttonBrowsLogo.AutoSize = true;
+            this.buttonBrowsLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBrowsLogo.Location = new System.Drawing.Point(42, 84);
+            this.buttonBrowsLogo.Name = "buttonBrowsLogo";
+            this.buttonBrowsLogo.Size = new System.Drawing.Size(104, 30);
+            this.buttonBrowsLogo.TabIndex = 4;
+            this.buttonBrowsLogo.Text = "Brows Logo";
+            this.buttonBrowsLogo.UseVisualStyleBackColor = true;
+            this.buttonBrowsLogo.Click += new System.EventHandler(this.buttonBrowsLogo_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(39, 35);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(79, 18);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "Logo Size";
+            // 
+            // numericUpDownLogoSize
+            // 
+            this.numericUpDownLogoSize.Location = new System.Drawing.Point(124, 33);
+            this.numericUpDownLogoSize.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.numericUpDownLogoSize.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.numericUpDownLogoSize.Name = "numericUpDownLogoSize";
+            this.numericUpDownLogoSize.Size = new System.Drawing.Size(54, 26);
+            this.numericUpDownLogoSize.TabIndex = 15;
+            this.numericUpDownLogoSize.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.numericUpDownLogoSize.ValueChanged += new System.EventHandler(this.numericUpDownLogoSize_ValueChanged);
+            // 
             // NewsPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(123)))), ((int)(((byte)(123)))));
             this.ClientSize = new System.Drawing.Size(812, 420);
+            this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.labelDateTime);
             this.Controls.Add(this.panelSettingButton);
             this.Controls.Add(this.saScrollingLabelNews2);
@@ -609,6 +674,8 @@
             this.panelSetting.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSettingPanelClose)).EndInit();
             this.tabControlSetting.ResumeLayout(false);
+            this.tabPageSetting.ResumeLayout(false);
+            this.tabPageSetting.PerformLayout();
             this.tabPageNews1.ResumeLayout(false);
             this.tabPageNews1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarNews1Speed)).EndInit();
@@ -620,6 +687,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSetting)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.panelSettingButton.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLogoSize)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -671,6 +740,10 @@
         private System.Windows.Forms.Button buttonDateTimeBackColor;
         private System.Windows.Forms.Button buttonDateTimeFont;
         private System.Windows.Forms.Button buttonDateTimeForeColor;
+        private System.Windows.Forms.PictureBox pictureBoxLogo;
+        private System.Windows.Forms.Button buttonBrowsLogo;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.NumericUpDown numericUpDownLogoSize;
     }
 }
 
