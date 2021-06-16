@@ -35,6 +35,8 @@
             this.tabControlSetting = new System.Windows.Forms.TabControl();
             this.tabPageSetting = new System.Windows.Forms.TabPage();
             this.tabPageNews1 = new System.Windows.Forms.TabPage();
+            this.checkBoxNews1BackColor = new System.Windows.Forms.CheckBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.textBoxNews1Text = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonNews1BackColor = new System.Windows.Forms.Button();
@@ -46,6 +48,8 @@
             this.trackBarNews1Speed = new System.Windows.Forms.TrackBar();
             this.comboBoxNews1Direction = new System.Windows.Forms.ComboBox();
             this.tabPageNews2 = new System.Windows.Forms.TabPage();
+            this.checkBoxNews2BackColor = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.textBoxNews2Text = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonNews2BackColor = new System.Windows.Forms.Button();
@@ -56,6 +60,10 @@
             this.buttonNews2ForeColor = new System.Windows.Forms.Button();
             this.trackBarNews2Speed = new System.Windows.Forms.TrackBar();
             this.comboBoxNews2Direction = new System.Windows.Forms.ComboBox();
+            this.tabPageDateTime = new System.Windows.Forms.TabPage();
+            this.buttonDateTimeBackColor = new System.Windows.Forms.Button();
+            this.buttonDateTimeFont = new System.Windows.Forms.Button();
+            this.buttonDateTimeForeColor = new System.Windows.Forms.Button();
             this.saDragControlSettingPanel = new ShakikulFramework.Toolbox.SADragControl();
             this.timerSetting = new System.Windows.Forms.Timer(this.components);
             this.saScrollingLabelNews1 = new ShakikulFramework.Toolbox.SAScrollingLabel();
@@ -63,16 +71,8 @@
             this.pictureBoxSetting = new System.Windows.Forms.PictureBox();
             this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             this.panelSettingButton = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.checkBoxNews2BackColor = new System.Windows.Forms.CheckBox();
-            this.checkBoxNews1BackColor = new System.Windows.Forms.CheckBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.labelDateTime = new System.Windows.Forms.Label();
             this.timerDateTime = new System.Windows.Forms.Timer(this.components);
-            this.tabPageDateTime = new System.Windows.Forms.TabPage();
-            this.buttonDateTimeBackColor = new System.Windows.Forms.Button();
-            this.buttonDateTimeFont = new System.Windows.Forms.Button();
-            this.buttonDateTimeForeColor = new System.Windows.Forms.Button();
             this.panelSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSettingPanelClose)).BeginInit();
             this.tabControlSetting.SuspendLayout();
@@ -80,10 +80,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBarNews1Speed)).BeginInit();
             this.tabPageNews2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarNews2Speed)).BeginInit();
+            this.tabPageDateTime.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSetting)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.panelSettingButton.SuspendLayout();
-            this.tabPageDateTime.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSetting
@@ -98,6 +98,7 @@
             this.panelSetting.Size = new System.Drawing.Size(674, 254);
             this.panelSetting.TabIndex = 2;
             this.panelSetting.Visible = false;
+            this.panelSetting.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelSetting_MouseMove);
             // 
             // labelTitle
             // 
@@ -168,6 +169,27 @@
             this.tabPageNews1.Size = new System.Drawing.Size(666, 187);
             this.tabPageNews1.TabIndex = 1;
             this.tabPageNews1.Text = "News 1";
+            // 
+            // checkBoxNews1BackColor
+            // 
+            this.checkBoxNews1BackColor.AutoSize = true;
+            this.checkBoxNews1BackColor.Checked = true;
+            this.checkBoxNews1BackColor.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxNews1BackColor.Location = new System.Drawing.Point(109, 23);
+            this.checkBoxNews1BackColor.Name = "checkBoxNews1BackColor";
+            this.checkBoxNews1BackColor.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxNews1BackColor.TabIndex = 27;
+            this.checkBoxNews1BackColor.UseVisualStyleBackColor = true;
+            this.checkBoxNews1BackColor.CheckedChanged += new System.EventHandler(this.checkBoxNews1BackColor_CheckedChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(13, 21);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(86, 18);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "Back Color";
             // 
             // textBoxNews1Text
             // 
@@ -298,6 +320,27 @@
             this.tabPageNews2.TabIndex = 2;
             this.tabPageNews2.Text = "News 2";
             // 
+            // checkBoxNews2BackColor
+            // 
+            this.checkBoxNews2BackColor.AutoSize = true;
+            this.checkBoxNews2BackColor.Checked = true;
+            this.checkBoxNews2BackColor.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxNews2BackColor.Location = new System.Drawing.Point(109, 23);
+            this.checkBoxNews2BackColor.Name = "checkBoxNews2BackColor";
+            this.checkBoxNews2BackColor.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxNews2BackColor.TabIndex = 25;
+            this.checkBoxNews2BackColor.UseVisualStyleBackColor = true;
+            this.checkBoxNews2BackColor.CheckedChanged += new System.EventHandler(this.checkBoxNews2BackColor_CheckedChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 21);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(86, 18);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "Back Color";
+            // 
             // textBoxNews2Text
             // 
             this.textBoxNews2Text.Location = new System.Drawing.Point(109, 43);
@@ -406,6 +449,55 @@
             this.comboBoxNews2Direction.TabIndex = 22;
             this.comboBoxNews2Direction.SelectedIndexChanged += new System.EventHandler(this.comboBoxNews2Direction_SelectedIndexChanged);
             // 
+            // tabPageDateTime
+            // 
+            this.tabPageDateTime.BackColor = System.Drawing.Color.White;
+            this.tabPageDateTime.Controls.Add(this.buttonDateTimeBackColor);
+            this.tabPageDateTime.Controls.Add(this.buttonDateTimeFont);
+            this.tabPageDateTime.Controls.Add(this.buttonDateTimeForeColor);
+            this.tabPageDateTime.Location = new System.Drawing.Point(4, 27);
+            this.tabPageDateTime.Name = "tabPageDateTime";
+            this.tabPageDateTime.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDateTime.Size = new System.Drawing.Size(666, 187);
+            this.tabPageDateTime.TabIndex = 3;
+            this.tabPageDateTime.Text = "Date Time";
+            // 
+            // buttonDateTimeBackColor
+            // 
+            this.buttonDateTimeBackColor.AutoSize = true;
+            this.buttonDateTimeBackColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDateTimeBackColor.Location = new System.Drawing.Point(258, 64);
+            this.buttonDateTimeBackColor.Name = "buttonDateTimeBackColor";
+            this.buttonDateTimeBackColor.Size = new System.Drawing.Size(102, 30);
+            this.buttonDateTimeBackColor.TabIndex = 32;
+            this.buttonDateTimeBackColor.Text = "Back Color";
+            this.buttonDateTimeBackColor.UseVisualStyleBackColor = true;
+            this.buttonDateTimeBackColor.Click += new System.EventHandler(this.buttonDateTimeBackColor_Click);
+            // 
+            // buttonDateTimeFont
+            // 
+            this.buttonDateTimeFont.AutoSize = true;
+            this.buttonDateTimeFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDateTimeFont.Location = new System.Drawing.Point(366, 64);
+            this.buttonDateTimeFont.Name = "buttonDateTimeFont";
+            this.buttonDateTimeFont.Size = new System.Drawing.Size(132, 30);
+            this.buttonDateTimeFont.TabIndex = 31;
+            this.buttonDateTimeFont.Text = "Font, Style, Size";
+            this.buttonDateTimeFont.UseVisualStyleBackColor = true;
+            this.buttonDateTimeFont.Click += new System.EventHandler(this.buttonDateTimeFont_Click);
+            // 
+            // buttonDateTimeForeColor
+            // 
+            this.buttonDateTimeForeColor.AutoSize = true;
+            this.buttonDateTimeForeColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDateTimeForeColor.Location = new System.Drawing.Point(157, 64);
+            this.buttonDateTimeForeColor.Name = "buttonDateTimeForeColor";
+            this.buttonDateTimeForeColor.Size = new System.Drawing.Size(95, 30);
+            this.buttonDateTimeForeColor.TabIndex = 30;
+            this.buttonDateTimeForeColor.Text = "Fore Color";
+            this.buttonDateTimeForeColor.UseVisualStyleBackColor = true;
+            this.buttonDateTimeForeColor.Click += new System.EventHandler(this.buttonDateTimeForeColor_Click);
+            // 
             // saDragControlSettingPanel
             // 
             this.saDragControlSettingPanel.SelectControl = this.panelSetting;
@@ -470,56 +562,14 @@
             // panelSettingButton
             // 
             this.panelSettingButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelSettingButton.BackColor = System.Drawing.SystemColors.Control;
+            this.panelSettingButton.BackColor = System.Drawing.Color.Transparent;
             this.panelSettingButton.Controls.Add(this.pictureBoxSetting);
             this.panelSettingButton.Controls.Add(this.pictureBoxClose);
-            this.panelSettingButton.Location = new System.Drawing.Point(682, 304);
+            this.panelSettingButton.Location = new System.Drawing.Point(654, 292);
             this.panelSettingButton.Name = "panelSettingButton";
             this.panelSettingButton.Size = new System.Drawing.Size(86, 44);
             this.panelSettingButton.TabIndex = 9;
             this.panelSettingButton.Visible = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 21);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 18);
-            this.label5.TabIndex = 24;
-            this.label5.Text = "Back Color";
-            // 
-            // checkBoxNews2BackColor
-            // 
-            this.checkBoxNews2BackColor.AutoSize = true;
-            this.checkBoxNews2BackColor.Checked = true;
-            this.checkBoxNews2BackColor.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxNews2BackColor.Location = new System.Drawing.Point(109, 23);
-            this.checkBoxNews2BackColor.Name = "checkBoxNews2BackColor";
-            this.checkBoxNews2BackColor.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxNews2BackColor.TabIndex = 25;
-            this.checkBoxNews2BackColor.UseVisualStyleBackColor = true;
-            this.checkBoxNews2BackColor.CheckedChanged += new System.EventHandler(this.checkBoxNews2BackColor_CheckedChanged);
-            // 
-            // checkBoxNews1BackColor
-            // 
-            this.checkBoxNews1BackColor.AutoSize = true;
-            this.checkBoxNews1BackColor.Checked = true;
-            this.checkBoxNews1BackColor.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxNews1BackColor.Location = new System.Drawing.Point(109, 23);
-            this.checkBoxNews1BackColor.Name = "checkBoxNews1BackColor";
-            this.checkBoxNews1BackColor.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxNews1BackColor.TabIndex = 27;
-            this.checkBoxNews1BackColor.UseVisualStyleBackColor = true;
-            this.checkBoxNews1BackColor.CheckedChanged += new System.EventHandler(this.checkBoxNews1BackColor_CheckedChanged);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 21);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(86, 18);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "Back Color";
             // 
             // labelDateTime
             // 
@@ -538,59 +588,11 @@
             this.timerDateTime.Interval = 1000;
             this.timerDateTime.Tick += new System.EventHandler(this.timerDateTime_Tick);
             // 
-            // tabPageDateTime
-            // 
-            this.tabPageDateTime.Controls.Add(this.buttonDateTimeBackColor);
-            this.tabPageDateTime.Controls.Add(this.buttonDateTimeFont);
-            this.tabPageDateTime.Controls.Add(this.buttonDateTimeForeColor);
-            this.tabPageDateTime.Location = new System.Drawing.Point(4, 27);
-            this.tabPageDateTime.Name = "tabPageDateTime";
-            this.tabPageDateTime.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDateTime.Size = new System.Drawing.Size(666, 187);
-            this.tabPageDateTime.TabIndex = 3;
-            this.tabPageDateTime.Text = "Date Time";
-            this.tabPageDateTime.UseVisualStyleBackColor = true;
-            // 
-            // buttonDateTimeBackColor
-            // 
-            this.buttonDateTimeBackColor.AutoSize = true;
-            this.buttonDateTimeBackColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDateTimeBackColor.Location = new System.Drawing.Point(258, 64);
-            this.buttonDateTimeBackColor.Name = "buttonDateTimeBackColor";
-            this.buttonDateTimeBackColor.Size = new System.Drawing.Size(102, 30);
-            this.buttonDateTimeBackColor.TabIndex = 32;
-            this.buttonDateTimeBackColor.Text = "Back Color";
-            this.buttonDateTimeBackColor.UseVisualStyleBackColor = true;
-            this.buttonDateTimeBackColor.Click += new System.EventHandler(this.buttonDateTimeBackColor_Click);
-            // 
-            // buttonDateTimeFont
-            // 
-            this.buttonDateTimeFont.AutoSize = true;
-            this.buttonDateTimeFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDateTimeFont.Location = new System.Drawing.Point(366, 64);
-            this.buttonDateTimeFont.Name = "buttonDateTimeFont";
-            this.buttonDateTimeFont.Size = new System.Drawing.Size(132, 30);
-            this.buttonDateTimeFont.TabIndex = 31;
-            this.buttonDateTimeFont.Text = "Font, Style, Size";
-            this.buttonDateTimeFont.UseVisualStyleBackColor = true;
-            this.buttonDateTimeFont.Click += new System.EventHandler(this.buttonDateTimeFont_Click);
-            // 
-            // buttonDateTimeForeColor
-            // 
-            this.buttonDateTimeForeColor.AutoSize = true;
-            this.buttonDateTimeForeColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDateTimeForeColor.Location = new System.Drawing.Point(157, 64);
-            this.buttonDateTimeForeColor.Name = "buttonDateTimeForeColor";
-            this.buttonDateTimeForeColor.Size = new System.Drawing.Size(95, 30);
-            this.buttonDateTimeForeColor.TabIndex = 30;
-            this.buttonDateTimeForeColor.Text = "Fore Color";
-            this.buttonDateTimeForeColor.UseVisualStyleBackColor = true;
-            this.buttonDateTimeForeColor.Click += new System.EventHandler(this.buttonDateTimeForeColor_Click);
-            // 
             // NewsPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(123)))), ((int)(((byte)(123)))));
             this.ClientSize = new System.Drawing.Size(812, 420);
             this.Controls.Add(this.labelDateTime);
             this.Controls.Add(this.panelSettingButton);
@@ -601,7 +603,7 @@
             this.Name = "NewsPanel";
             this.Text = "News Panel";
             this.TopMost = true;
-            this.TransparencyKey = System.Drawing.SystemColors.Control;
+            this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(123)))), ((int)(((byte)(123)))));
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelSetting.ResumeLayout(false);
             this.panelSetting.PerformLayout();
@@ -613,11 +615,11 @@
             this.tabPageNews2.ResumeLayout(false);
             this.tabPageNews2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarNews2Speed)).EndInit();
+            this.tabPageDateTime.ResumeLayout(false);
+            this.tabPageDateTime.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSetting)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.panelSettingButton.ResumeLayout(false);
-            this.tabPageDateTime.ResumeLayout(false);
-            this.tabPageDateTime.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

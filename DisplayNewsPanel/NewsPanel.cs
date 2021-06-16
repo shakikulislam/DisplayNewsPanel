@@ -229,6 +229,7 @@ namespace DisplayNewsPanel
         private void pictureBoxSetting_Click(object sender, EventArgs e)
         {
             panelSetting.Visible = true;
+            //panelSetting.Location = Settings.Default.SettingPanelLocation;
         }
         
         private void textBoxNews2Text_TextChanged(object sender, EventArgs e)
@@ -330,7 +331,7 @@ namespace DisplayNewsPanel
             }
             else
             {
-                saScrollingLabelNews2.BackColor = SystemColors.Control;
+                saScrollingLabelNews2.BackColor = Color.FromArgb(123,123,123);;
                 buttonNews2BackColor.Enabled = false;
                 Settings.Default.TransparentBackColor2 = false;
                 Settings.Default.Save();
@@ -349,7 +350,7 @@ namespace DisplayNewsPanel
             }
             else
             {
-                saScrollingLabelNews1.BackColor = SystemColors.Control;
+                saScrollingLabelNews1.BackColor = Color.FromArgb(123,123,123);
                 buttonNews1BackColor.Enabled = false;
                 Settings.Default.TransparentBackColor1 = false;
                 Settings.Default.Save();
@@ -405,6 +406,34 @@ namespace DisplayNewsPanel
                 Settings.Default.DateTimeFont = _fontDialog.Font;
                 Settings.Default.Save();
             }
+        }
+        
+        private void panelSetting_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (panelSetting.Location.X+panelSetting.Width > this.Width)
+            {
+                panelSetting.Location = new Point(this.Width - panelSetting.Width, panelSetting.Location.Y);
+            }
+
+            if (panelSetting.Location.X < 0)
+            {
+                panelSetting.Location = new Point(0, panelSetting.Location.Y);
+            }
+
+            if (panelSetting.Location.Y+panelSetting.Height>this.Height)
+            {
+                panelSetting.Location = new Point(panelSetting.Location.X, panelSettingButton.Location.Y-panelSetting.Height);
+            }
+
+            if (panelSetting.Location.Y<0)
+            {
+                panelSetting.Location = new Point(panelSetting.Location.X, 0);
+            }
+
+
+            Settings.Default.SettingPanelLocation = panelSetting.Location;
+            Settings.Default.Save();
+            
         }
 
 

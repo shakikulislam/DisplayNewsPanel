@@ -221,5 +221,17 @@ namespace DisplayNewsPanel.Properties {
                 this["DateTimeFont"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 1")]
+        public global::System.Drawing.Point SettingPanelLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["SettingPanelLocation"]));
+            }
+            set {
+                this["SettingPanelLocation"] = value;
+            }
+        }
     }
 }
