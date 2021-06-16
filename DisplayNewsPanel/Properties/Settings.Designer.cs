@@ -269,5 +269,17 @@ namespace DisplayNewsPanel.Properties {
                 this["LogoLocation"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowLogo {
+            get {
+                return ((bool)(this["ShowLogo"]));
+            }
+            set {
+                this["ShowLogo"] = value;
+            }
+        }
     }
 }

@@ -77,6 +77,7 @@
             this.buttonBrowsLogo = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.numericUpDownLogoSize = new System.Windows.Forms.NumericUpDown();
+            this.checkBoxShowLogo = new System.Windows.Forms.CheckBox();
             this.panelSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSettingPanelClose)).BeginInit();
             this.tabControlSetting.SuspendLayout();
@@ -148,6 +149,7 @@
             // tabPageSetting
             // 
             this.tabPageSetting.BackColor = System.Drawing.Color.White;
+            this.tabPageSetting.Controls.Add(this.checkBoxShowLogo);
             this.tabPageSetting.Controls.Add(this.numericUpDownLogoSize);
             this.tabPageSetting.Controls.Add(this.label9);
             this.tabPageSetting.Controls.Add(this.buttonBrowsLogo);
@@ -612,7 +614,7 @@
             // 
             this.buttonBrowsLogo.AutoSize = true;
             this.buttonBrowsLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBrowsLogo.Location = new System.Drawing.Point(42, 84);
+            this.buttonBrowsLogo.Location = new System.Drawing.Point(214, 88);
             this.buttonBrowsLogo.Name = "buttonBrowsLogo";
             this.buttonBrowsLogo.Size = new System.Drawing.Size(104, 30);
             this.buttonBrowsLogo.TabIndex = 4;
@@ -623,7 +625,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(39, 35);
+            this.label9.Location = new System.Drawing.Point(179, 58);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(79, 18);
             this.label9.TabIndex = 14;
@@ -631,7 +633,7 @@
             // 
             // numericUpDownLogoSize
             // 
-            this.numericUpDownLogoSize.Location = new System.Drawing.Point(124, 33);
+            this.numericUpDownLogoSize.Location = new System.Drawing.Point(264, 56);
             this.numericUpDownLogoSize.Maximum = new decimal(new int[] {
             300,
             0,
@@ -651,6 +653,20 @@
             0,
             0});
             this.numericUpDownLogoSize.ValueChanged += new System.EventHandler(this.numericUpDownLogoSize_ValueChanged);
+            // 
+            // checkBoxShowLogo
+            // 
+            this.checkBoxShowLogo.AutoSize = true;
+            this.checkBoxShowLogo.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBoxShowLogo.Checked = true;
+            this.checkBoxShowLogo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxShowLogo.Location = new System.Drawing.Point(91, 19);
+            this.checkBoxShowLogo.Name = "checkBoxShowLogo";
+            this.checkBoxShowLogo.Size = new System.Drawing.Size(106, 22);
+            this.checkBoxShowLogo.TabIndex = 16;
+            this.checkBoxShowLogo.Text = "Show Logo";
+            this.checkBoxShowLogo.UseVisualStyleBackColor = true;
+            this.checkBoxShowLogo.CheckedChanged += new System.EventHandler(this.checkBoxShowLogo_CheckedChanged);
             // 
             // NewsPanel
             // 
@@ -744,6 +760,7 @@
         private System.Windows.Forms.Button buttonBrowsLogo;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown numericUpDownLogoSize;
+        private System.Windows.Forms.CheckBox checkBoxShowLogo;
     }
 }
 

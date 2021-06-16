@@ -95,12 +95,11 @@ namespace DisplayNewsPanel
             
             #endregion
 
-
             SetNewsLineLocation();
 
-            
             #region Logo
 
+            checkBoxShowLogo.Checked = Settings.Default.ShowLogo;
             numericUpDownLogoSize.Text = Settings.Default.LogoSize.Height.ToString();
             pictureBoxLogo.ImageLocation = Settings.Default.LogoLink;
             pictureBoxLogo.Location = Settings.Default.LogoLocation;
@@ -453,6 +452,7 @@ namespace DisplayNewsPanel
         private void buttonBrowsLogo_Click(object sender, EventArgs e)
         {
             _openFileDialog=new OpenFileDialog();
+            _openFileDialog.Filter = "JPG|*.jpg|JPEG|*.jpeg|PNG|*.png|GIF|*.gif";
             if (_openFileDialog.ShowDialog()==DialogResult.OK)
             {
                 pictureBoxLogo.ImageLocation = _openFileDialog.FileName;
@@ -473,6 +473,27 @@ namespace DisplayNewsPanel
             Settings.Default.Save();
         }
 
+        private void checkBoxShowLogo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxShowLogo.Checked)
+            {
+                pictureBoxLogo.Visible = true;
+                numericUpDownLogoSize.Enabled = true;
+                buttonBrowsLogo.Enabled = true;
+
+                Settings.Default.ShowLogo = true;
+                Settings.Default.Save();
+            }
+            else
+            {
+                pictureBoxLogo.Visible = false;
+                numericUpDownLogoSize.Enabled = false;
+                buttonBrowsLogo.Enabled = false;
+
+                Settings.Default.ShowLogo = false;
+                Settings.Default.Save();
+            }
+        }
 
 
 
