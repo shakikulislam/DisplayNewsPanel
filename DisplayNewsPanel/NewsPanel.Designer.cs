@@ -34,6 +34,10 @@
             this.pictureBoxSettingPanelClose = new System.Windows.Forms.PictureBox();
             this.tabControlSetting = new System.Windows.Forms.TabControl();
             this.tabPageSetting = new System.Windows.Forms.TabPage();
+            this.checkBoxShowLogo = new System.Windows.Forms.CheckBox();
+            this.numericUpDownLogoSize = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
+            this.buttonBrowsLogo = new System.Windows.Forms.Button();
             this.tabPageNews1 = new System.Windows.Forms.TabPage();
             this.checkBoxNews1BackColor = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -74,14 +78,11 @@
             this.labelDateTime = new System.Windows.Forms.Label();
             this.timerDateTime = new System.Windows.Forms.Timer(this.components);
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.buttonBrowsLogo = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.numericUpDownLogoSize = new System.Windows.Forms.NumericUpDown();
-            this.checkBoxShowLogo = new System.Windows.Forms.CheckBox();
             this.panelSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSettingPanelClose)).BeginInit();
             this.tabControlSetting.SuspendLayout();
             this.tabPageSetting.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLogoSize)).BeginInit();
             this.tabPageNews1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarNews1Speed)).BeginInit();
             this.tabPageNews2.SuspendLayout();
@@ -91,7 +92,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.panelSettingButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLogoSize)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSetting
@@ -159,6 +159,64 @@
             this.tabPageSetting.Size = new System.Drawing.Size(666, 187);
             this.tabPageSetting.TabIndex = 0;
             this.tabPageSetting.Text = "Setting";
+            // 
+            // checkBoxShowLogo
+            // 
+            this.checkBoxShowLogo.AutoSize = true;
+            this.checkBoxShowLogo.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBoxShowLogo.Checked = true;
+            this.checkBoxShowLogo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxShowLogo.Location = new System.Drawing.Point(91, 19);
+            this.checkBoxShowLogo.Name = "checkBoxShowLogo";
+            this.checkBoxShowLogo.Size = new System.Drawing.Size(106, 22);
+            this.checkBoxShowLogo.TabIndex = 16;
+            this.checkBoxShowLogo.Text = "Show Logo";
+            this.checkBoxShowLogo.UseVisualStyleBackColor = true;
+            this.checkBoxShowLogo.CheckedChanged += new System.EventHandler(this.checkBoxShowLogo_CheckedChanged);
+            // 
+            // numericUpDownLogoSize
+            // 
+            this.numericUpDownLogoSize.Location = new System.Drawing.Point(264, 56);
+            this.numericUpDownLogoSize.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.numericUpDownLogoSize.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.numericUpDownLogoSize.Name = "numericUpDownLogoSize";
+            this.numericUpDownLogoSize.Size = new System.Drawing.Size(54, 26);
+            this.numericUpDownLogoSize.TabIndex = 15;
+            this.numericUpDownLogoSize.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.numericUpDownLogoSize.ValueChanged += new System.EventHandler(this.numericUpDownLogoSize_ValueChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(179, 58);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(79, 18);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "Logo Size";
+            // 
+            // buttonBrowsLogo
+            // 
+            this.buttonBrowsLogo.AutoSize = true;
+            this.buttonBrowsLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBrowsLogo.Location = new System.Drawing.Point(214, 88);
+            this.buttonBrowsLogo.Name = "buttonBrowsLogo";
+            this.buttonBrowsLogo.Size = new System.Drawing.Size(104, 30);
+            this.buttonBrowsLogo.TabIndex = 4;
+            this.buttonBrowsLogo.Text = "Brows Logo";
+            this.buttonBrowsLogo.UseVisualStyleBackColor = true;
+            this.buttonBrowsLogo.Click += new System.EventHandler(this.buttonBrowsLogo_Click);
             // 
             // tabPageNews1
             // 
@@ -593,6 +651,7 @@
             this.labelDateTime.Size = new System.Drawing.Size(57, 13);
             this.labelDateTime.TabIndex = 10;
             this.labelDateTime.Text = "Date TIme";
+            this.labelDateTime.MouseHover += new System.EventHandler(this.labelDateTime_MouseHover);
             // 
             // timerDateTime
             // 
@@ -609,64 +668,7 @@
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxLogo.TabIndex = 11;
             this.pictureBoxLogo.TabStop = false;
-            // 
-            // buttonBrowsLogo
-            // 
-            this.buttonBrowsLogo.AutoSize = true;
-            this.buttonBrowsLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBrowsLogo.Location = new System.Drawing.Point(214, 88);
-            this.buttonBrowsLogo.Name = "buttonBrowsLogo";
-            this.buttonBrowsLogo.Size = new System.Drawing.Size(104, 30);
-            this.buttonBrowsLogo.TabIndex = 4;
-            this.buttonBrowsLogo.Text = "Brows Logo";
-            this.buttonBrowsLogo.UseVisualStyleBackColor = true;
-            this.buttonBrowsLogo.Click += new System.EventHandler(this.buttonBrowsLogo_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(179, 58);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 18);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "Logo Size";
-            // 
-            // numericUpDownLogoSize
-            // 
-            this.numericUpDownLogoSize.Location = new System.Drawing.Point(264, 56);
-            this.numericUpDownLogoSize.Maximum = new decimal(new int[] {
-            300,
-            0,
-            0,
-            0});
-            this.numericUpDownLogoSize.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.numericUpDownLogoSize.Name = "numericUpDownLogoSize";
-            this.numericUpDownLogoSize.Size = new System.Drawing.Size(54, 26);
-            this.numericUpDownLogoSize.TabIndex = 15;
-            this.numericUpDownLogoSize.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.numericUpDownLogoSize.ValueChanged += new System.EventHandler(this.numericUpDownLogoSize_ValueChanged);
-            // 
-            // checkBoxShowLogo
-            // 
-            this.checkBoxShowLogo.AutoSize = true;
-            this.checkBoxShowLogo.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBoxShowLogo.Checked = true;
-            this.checkBoxShowLogo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxShowLogo.Location = new System.Drawing.Point(91, 19);
-            this.checkBoxShowLogo.Name = "checkBoxShowLogo";
-            this.checkBoxShowLogo.Size = new System.Drawing.Size(106, 22);
-            this.checkBoxShowLogo.TabIndex = 16;
-            this.checkBoxShowLogo.Text = "Show Logo";
-            this.checkBoxShowLogo.UseVisualStyleBackColor = true;
-            this.checkBoxShowLogo.CheckedChanged += new System.EventHandler(this.checkBoxShowLogo_CheckedChanged);
+            this.pictureBoxLogo.MouseHover += new System.EventHandler(this.pictureBoxLogo_MouseHover);
             // 
             // NewsPanel
             // 
@@ -682,6 +684,7 @@
             this.Controls.Add(this.panelSetting);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "NewsPanel";
+            this.ShowInTaskbar = false;
             this.Text = "News Panel";
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(123)))), ((int)(((byte)(123)))));
@@ -692,6 +695,7 @@
             this.tabControlSetting.ResumeLayout(false);
             this.tabPageSetting.ResumeLayout(false);
             this.tabPageSetting.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLogoSize)).EndInit();
             this.tabPageNews1.ResumeLayout(false);
             this.tabPageNews1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarNews1Speed)).EndInit();
@@ -704,7 +708,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.panelSettingButton.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLogoSize)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

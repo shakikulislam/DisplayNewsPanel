@@ -95,8 +95,6 @@ namespace DisplayNewsPanel
             
             #endregion
 
-            SetNewsLineLocation();
-
             #region Logo
 
             checkBoxShowLogo.Checked = Settings.Default.ShowLogo;
@@ -107,6 +105,8 @@ namespace DisplayNewsPanel
             
 
             #endregion
+
+            SetNewsLineLocation();
         }
 
         private void DateTimeFormat()
@@ -116,19 +116,23 @@ namespace DisplayNewsPanel
         }
         private void SetNewsLineLocation()
         {
+            var news1Height = textBoxNews1Text.Text != "" ? saScrollingLabelNews1.Height : 0;
+            var news2Height = textBoxNews2Text.Text != "" ? saScrollingLabelNews2.Height : 0;
+            
+
             //..Set NewsLineLocation
             saScrollingLabelNews1.Location = new Point(saScrollingLabelNews1.Location.X,
-                this.Height - saScrollingLabelNews1.Height);
+                this.Height - news1Height);
             saScrollingLabelNews2.Location = new Point(saScrollingLabelNews2.Location.X,
-                this.Height - (saScrollingLabelNews1.Height + saScrollingLabelNews2.Height));
+                this.Height - (news1Height + news2Height));
 
             //..Set PanelSettingButton location
             panelSettingButton.Location = new Point(this.Width - panelSettingButton.Width,
-                this.Height - saScrollingLabelNews1.Height - saScrollingLabelNews2.Height -panelSettingButton.Height);
+                this.Height - news1Height - news2Height - panelSettingButton.Height);
 
             //..Set DateTime location
             labelDateTime.Location = new Point(10,
-                this.Height - saScrollingLabelNews1.Height - saScrollingLabelNews2.Height - labelDateTime.Height-2);
+                this.Height - news1Height - news2Height - labelDateTime.Height - 2);
         }
 
         private void DirectionList(ComboBox comboBox)
@@ -165,8 +169,18 @@ namespace DisplayNewsPanel
 
         private void textBoxNewsText_TextChanged(object sender, EventArgs e)
         {
-            saScrollingLabelNews1.Text = textBoxNews1Text.Text;
+            if (textBoxNews1Text.Text=="")
+            {
+                saScrollingLabelNews1.Visible = false;
+            }
+            else
+            {
+                saScrollingLabelNews1.Visible = true;
+                saScrollingLabelNews1.Text = textBoxNews1Text.Text;
+            }
 
+            SetNewsLineLocation();
+            
             Settings.Default.NewsText1 = textBoxNews1Text.Text;
             Settings.Default.Save();
         }
@@ -247,7 +261,17 @@ namespace DisplayNewsPanel
         
         private void textBoxNews2Text_TextChanged(object sender, EventArgs e)
         {
-            saScrollingLabelNews2.Text = textBoxNews2Text.Text;
+            if (textBoxNews2Text.Text == "")
+            {
+                saScrollingLabelNews2.Visible = false;
+            }
+            else
+            {
+                saScrollingLabelNews2.Visible = true;
+                saScrollingLabelNews2.Text = textBoxNews2Text.Text;
+            }
+
+            SetNewsLineLocation();
 
             Settings.Default.NewsText2 = textBoxNews2Text.Text;
             Settings.Default.Save();
@@ -493,6 +517,18 @@ namespace DisplayNewsPanel
                 Settings.Default.ShowLogo = false;
                 Settings.Default.Save();
             }
+        }
+
+        private void labelDateTime_MouseHover(object sender, EventArgs e)
+        {
+            panelSettingButton.Visible = true;
+            timerSetting.Start();
+        }
+
+        private void pictureBoxLogo_MouseHover(object sender, EventArgs e)
+        {
+            panelSettingButton.Visible = true;
+            timerSetting.Start();
         }
 
 

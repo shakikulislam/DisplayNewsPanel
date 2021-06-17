@@ -45,10 +45,10 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="DateTimeForeColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Black</Value>
     </Setting>
     <Setting Name="DateTimeBackColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">White</Value>
     </Setting>
     <Setting Name="DateTimeFont" Type="System.Drawing.Font" Scope="User">
       <Value Profile="(Default)" />
