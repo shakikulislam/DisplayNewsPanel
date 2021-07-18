@@ -35,7 +35,6 @@
             this.tabControlSetting = new System.Windows.Forms.TabControl();
             this.tabPageSetting = new System.Windows.Forms.TabPage();
             this.checkBoxShowLogo = new System.Windows.Forms.CheckBox();
-            this.numericUpDownLogoSize = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.buttonBrowsLogo = new System.Windows.Forms.Button();
             this.tabPageNews1 = new System.Windows.Forms.TabPage();
@@ -78,11 +77,12 @@
             this.labelDateTime = new System.Windows.Forms.Label();
             this.timerDateTime = new System.Windows.Forms.Timer(this.components);
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.labelLogoSize = new System.Windows.Forms.Label();
+            this.trackBarLogoSize = new System.Windows.Forms.TrackBar();
             this.panelSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSettingPanelClose)).BeginInit();
             this.tabControlSetting.SuspendLayout();
             this.tabPageSetting.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLogoSize)).BeginInit();
             this.tabPageNews1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarNews1Speed)).BeginInit();
             this.tabPageNews2.SuspendLayout();
@@ -92,6 +92,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.panelSettingButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarLogoSize)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSetting
@@ -149,8 +150,9 @@
             // tabPageSetting
             // 
             this.tabPageSetting.BackColor = System.Drawing.Color.White;
+            this.tabPageSetting.Controls.Add(this.labelLogoSize);
+            this.tabPageSetting.Controls.Add(this.trackBarLogoSize);
             this.tabPageSetting.Controls.Add(this.checkBoxShowLogo);
-            this.tabPageSetting.Controls.Add(this.numericUpDownLogoSize);
             this.tabPageSetting.Controls.Add(this.label9);
             this.tabPageSetting.Controls.Add(this.buttonBrowsLogo);
             this.tabPageSetting.Location = new System.Drawing.Point(4, 27);
@@ -164,8 +166,6 @@
             // 
             this.checkBoxShowLogo.AutoSize = true;
             this.checkBoxShowLogo.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBoxShowLogo.Checked = true;
-            this.checkBoxShowLogo.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxShowLogo.Location = new System.Drawing.Point(91, 19);
             this.checkBoxShowLogo.Name = "checkBoxShowLogo";
             this.checkBoxShowLogo.Size = new System.Drawing.Size(106, 22);
@@ -174,33 +174,10 @@
             this.checkBoxShowLogo.UseVisualStyleBackColor = true;
             this.checkBoxShowLogo.CheckedChanged += new System.EventHandler(this.checkBoxShowLogo_CheckedChanged);
             // 
-            // numericUpDownLogoSize
-            // 
-            this.numericUpDownLogoSize.Location = new System.Drawing.Point(264, 56);
-            this.numericUpDownLogoSize.Maximum = new decimal(new int[] {
-            300,
-            0,
-            0,
-            0});
-            this.numericUpDownLogoSize.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.numericUpDownLogoSize.Name = "numericUpDownLogoSize";
-            this.numericUpDownLogoSize.Size = new System.Drawing.Size(54, 26);
-            this.numericUpDownLogoSize.TabIndex = 15;
-            this.numericUpDownLogoSize.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.numericUpDownLogoSize.ValueChanged += new System.EventHandler(this.numericUpDownLogoSize_ValueChanged);
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(179, 58);
+            this.label9.Location = new System.Drawing.Point(18, 83);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(79, 18);
             this.label9.TabIndex = 14;
@@ -210,7 +187,7 @@
             // 
             this.buttonBrowsLogo.AutoSize = true;
             this.buttonBrowsLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBrowsLogo.Location = new System.Drawing.Point(214, 88);
+            this.buttonBrowsLogo.Location = new System.Drawing.Point(220, 122);
             this.buttonBrowsLogo.Name = "buttonBrowsLogo";
             this.buttonBrowsLogo.Size = new System.Drawing.Size(104, 30);
             this.buttonBrowsLogo.TabIndex = 4;
@@ -668,7 +645,34 @@
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxLogo.TabIndex = 11;
             this.pictureBoxLogo.TabStop = false;
+            this.pictureBoxLogo.Visible = false;
             this.pictureBoxLogo.MouseHover += new System.EventHandler(this.pictureBoxLogo_MouseHover);
+            // 
+            // labelLogoSize
+            // 
+            this.labelLogoSize.AutoSize = true;
+            this.labelLogoSize.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLogoSize.ForeColor = System.Drawing.Color.DarkGreen;
+            this.labelLogoSize.Location = new System.Drawing.Point(594, 75);
+            this.labelLogoSize.Name = "labelLogoSize";
+            this.labelLogoSize.Size = new System.Drawing.Size(26, 29);
+            this.labelLogoSize.TabIndex = 18;
+            this.labelLogoSize.Text = "0";
+            // 
+            // trackBarLogoSize
+            // 
+            this.trackBarLogoSize.AutoSize = false;
+            this.trackBarLogoSize.BackColor = System.Drawing.Color.Navy;
+            this.trackBarLogoSize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.trackBarLogoSize.LargeChange = 1;
+            this.trackBarLogoSize.Location = new System.Drawing.Point(103, 74);
+            this.trackBarLogoSize.Maximum = 250;
+            this.trackBarLogoSize.Minimum = 50;
+            this.trackBarLogoSize.Name = "trackBarLogoSize";
+            this.trackBarLogoSize.Size = new System.Drawing.Size(485, 33);
+            this.trackBarLogoSize.TabIndex = 17;
+            this.trackBarLogoSize.Value = 50;
+            this.trackBarLogoSize.Scroll += new System.EventHandler(this.trackBarLogoSize_Scroll);
             // 
             // NewsPanel
             // 
@@ -695,7 +699,6 @@
             this.tabControlSetting.ResumeLayout(false);
             this.tabPageSetting.ResumeLayout(false);
             this.tabPageSetting.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLogoSize)).EndInit();
             this.tabPageNews1.ResumeLayout(false);
             this.tabPageNews1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarNews1Speed)).EndInit();
@@ -708,6 +711,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.panelSettingButton.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarLogoSize)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -762,8 +766,9 @@
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.Button buttonBrowsLogo;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.NumericUpDown numericUpDownLogoSize;
         private System.Windows.Forms.CheckBox checkBoxShowLogo;
+        private System.Windows.Forms.Label labelLogoSize;
+        private System.Windows.Forms.TrackBar trackBarLogoSize;
     }
 }
 

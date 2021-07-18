@@ -250,7 +250,7 @@ namespace DisplayNewsPanel.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("50, 50")]
         public global::System.Drawing.Size LogoSize {
             get {
                 return ((global::System.Drawing.Size)(this["LogoSize"]));

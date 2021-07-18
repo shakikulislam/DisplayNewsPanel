@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Drawing;
-using System.Drawing.Printing;
-using System.Linq;
-using System.Resources;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 using DisplayNewsPanel.Properties;
 using ShakikulFramework;
 using ShakikulFramework.Toolbox;
@@ -98,7 +94,8 @@ namespace DisplayNewsPanel
             #region Logo
 
             checkBoxShowLogo.Checked = Settings.Default.ShowLogo;
-            numericUpDownLogoSize.Text = Settings.Default.LogoSize.Height.ToString();
+            trackBarLogoSize.Value = Settings.Default.LogoSize.Height;
+            labelLogoSize.Text = Settings.Default.LogoSize.Height.ToString();
             pictureBoxLogo.ImageLocation = Settings.Default.LogoLink;
             pictureBoxLogo.Location = Settings.Default.LogoLocation;
             pictureBoxLogo.Size = Settings.Default.LogoSize;
@@ -368,7 +365,7 @@ namespace DisplayNewsPanel
             }
             else
             {
-                saScrollingLabelNews2.BackColor = Color.FromArgb(123,123,123);;
+                saScrollingLabelNews2.BackColor = Color.FromArgb(123,123,123);
                 buttonNews2BackColor.Enabled = false;
                 Settings.Default.TransparentBackColor2 = false;
                 Settings.Default.Save();
@@ -485,24 +482,13 @@ namespace DisplayNewsPanel
                 Settings.Default.Save();
             }
         }
-
-        private void numericUpDownLogoSize_ValueChanged(object sender, EventArgs e)
-        {
-            pictureBoxLogo.Size=new Size((int) numericUpDownLogoSize.Value, (int)numericUpDownLogoSize.Value);
-
-            pictureBoxLogo.Location=new Point(this.Width-pictureBoxLogo.Width-20, pictureBoxLogo.Location.Y);
-
-            Settings.Default.LogoSize = pictureBoxLogo.Size;
-            Settings.Default.LogoLocation = pictureBoxLogo.Location;
-            Settings.Default.Save();
-        }
-
+        
         private void checkBoxShowLogo_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxShowLogo.Checked)
             {
                 pictureBoxLogo.Visible = true;
-                numericUpDownLogoSize.Enabled = true;
+                trackBarLogoSize.Enabled = true;
                 buttonBrowsLogo.Enabled = true;
 
                 Settings.Default.ShowLogo = true;
@@ -511,7 +497,7 @@ namespace DisplayNewsPanel
             else
             {
                 pictureBoxLogo.Visible = false;
-                numericUpDownLogoSize.Enabled = false;
+                trackBarLogoSize.Enabled = false;
                 buttonBrowsLogo.Enabled = false;
 
                 Settings.Default.ShowLogo = false;
@@ -529,6 +515,18 @@ namespace DisplayNewsPanel
         {
             panelSettingButton.Visible = true;
             timerSetting.Start();
+        }
+
+        private void trackBarLogoSize_Scroll(object sender, EventArgs e)
+        {
+            pictureBoxLogo.Size = new Size(trackBarLogoSize.Value, trackBarLogoSize.Value);
+            pictureBoxLogo.Location = new Point(this.Width - pictureBoxLogo.Width - 20, pictureBoxLogo.Location.Y);
+
+            labelLogoSize.Text = trackBarLogoSize.Value.ToString();
+
+            Settings.Default.LogoSize = pictureBoxLogo.Size;
+            Settings.Default.LogoLocation = pictureBoxLogo.Location;
+            Settings.Default.Save();
         }
 
 
